@@ -381,6 +381,13 @@
 
                             } 
 
+
+                            
+
+                            if (!empty($msg)) {
+
+                             echo "$msg";
+                            }
                             
 
 

@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $obj = new User();
 
     
-    // $fosterparent = $_SESSION['fosterparent_id'];
+    $fosterparent = $_SESSION['fosterparent_id'];
     $parent = $_SESSION['parent_id'];
 
     $output = $obj->perfosterkid( $parent, $_POST['fkfirstname'], $_POST['fklastname'], $_POST['fkdateofbirth'], $_POST['fkgender'], $_POST['fkhobbies'], $_POST['picture']);
@@ -216,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="row mt-3">
                 <button class="btn btn-light mb-3" id="btnupdate">Update profile</button>
 
-                <button class="btn btn-light" id="btnregister">Make a request</button>
+                <a href="kidsavailable.php" class="btn btn-light" id="btnregister">View kids available</a>
 
                 <button class="btn btn-light mt-3" id="btnregister">Logout</button>
 

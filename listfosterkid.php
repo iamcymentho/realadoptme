@@ -74,7 +74,22 @@
                              <td><?php echo date('l jS F, Y', strtotime($value['dateof_birth']))?></td>
                             <td><?php echo $value['gender']?></td>
                             <td><?php echo $value['hobbies']?></td>
-                            <td><?php echo $value['picture']?></td>
+
+                            <td>
+                              <?php
+                              if (!empty($value['picture'])) {
+                                # code...
+          
+                              ?>
+
+                                <img src="fosterphotos/pictures<?php echo $value['picture']?>" alt="<?php echo $value['fosterkid_firstname']?> picture" class="img-fluid">
+                              <?php } ?>   
+
+                              <?php //echo $value['picture']?>
+                            
+                            </td>
+
+
                             <td><?php echo $value['blood_group']?></td>
                             <td><?php echo $value['allergies']?></td>
                             <td><?php echo $value['dna_report']?></td>

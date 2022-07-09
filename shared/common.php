@@ -28,7 +28,7 @@ class Common{
         // creating variables for file upload
 
     $filename = $_FILES['myfile']['name'];
-    $filpath = $_FILES['myfile']['full_path'];
+    $filepath = $_FILES['myfile']['full_path'];
     $filesize = $_FILES['myfile']['size'];
     $filetype = $_FILES['myfile']['type'];
     $tempname = $_FILES['myfile']['tmp_name'];

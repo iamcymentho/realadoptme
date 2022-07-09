@@ -87,21 +87,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // var_dump($_SESSION['parent_id']);
 
-    $output = $obj->perfosterkid( $_POST['fkfirstname'], $_POST['fklastname'], $_POST['fkdateofbirth'], $_POST['fkgender'], $_POST['fkhobbies'], $_POST['picture'], $parent);
+    $output = $obj->perfosterkid( $_POST['fkfirstname'], $_POST['fklastname'], $_POST['fkdateofbirth'], $_POST['fkgender'], $_POST['fkhobbies'], $parent);
 
     if($output > 0){
     $output1 = $obj->medfosterkid($output, $_POST['fkbloodgroup'], $_POST['fkallergies'], $_POST['fkdnareport'], $_POST['fkmedicalchallenges']);
     }
 
-    echo "<pre>";
-    print_r($output);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($output);
+    // echo "</pre>";
 
     if ($output == true && $output1 == true) {
 
         $msg = "<div class='alert alert-success'>Registration Successful</div>";
-        //redirect to success page
-        // header("Location: signin.php");
+
+        //redirect to dashboard page
+        header("Location: trial.php");
+        exit();
         }else{
 
             $msg = "<div class='alert alert-danger'>Oops! something happened. Try again later</div>";
@@ -200,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="card-body">
 
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
 
       <div class="row m-1 mt-2 mb-3">
 
@@ -261,7 +263,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <div class="col-md-6">
 
-        <input type="file" class="form-control " name="fkpicture" aria-label="picture" id="fkpicture">
+        <input type="file" class="form-control " name="myfile" aria-label="picture" id="fkpicture">
             <small class=" companytextcolor">Upload a picture</small>
       </div>
 

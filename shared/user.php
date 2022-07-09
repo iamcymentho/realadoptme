@@ -237,9 +237,9 @@ class User{
 
         #foster kid registration starts
 
-         function perfosterkid($fosterkid_firstname, $fosterkid_lastname, $dateof_birth, $gender, $hobbies, $picture, $parent_id){
+         function perfosterkid($fosterkid_firstname, $fosterkid_lastname, $dateof_birth, $gender, $hobbies, $parent_id){
 
-              $picture = "image";
+              // $picture = "image";
 
         //        // encrypt password
 		//  $pwd = password_hash($password, PASSWORD_DEFAULT);
@@ -247,8 +247,19 @@ class User{
          //prepare statement for database
          $statement = $this->dbconn->prepare("INSERT INTO fosterkid(fosterkid_firstname, fosterkid_lastname, dateof_birth, gender, hobbies, picture, parent_id) VALUES(?,?,?,?,?,?,?)");
 
-         //bind parameters
-         $statement->bind_param("ssssssi", $fosterkid_firstname, $fosterkid_lastname, $dateof_birth, $gender, $hobbies, $picture, $parent_id);
+         //create extentions
+            $ext = array('jpg', 'png', 'jpeg', 'gif');
+
+            //create common object
+          $obj = new Common;
+          $picture = $obj->uploadAnyFile("fosterphotos/pictures", 1048576, $ext);
+
+          if (array_key_exists('success', $picture)) {
+
+            $filename = $picture['success'];
+
+              //bind parameters
+         $statement->bind_param("ssssssi", $fosterkid_firstname, $fosterkid_lastname, $dateof_birth, $gender, $hobbies, $filename, $parent_id);
 
           #execute
         $statement->execute();
@@ -261,6 +272,37 @@ class User{
 
 					return false;
 				}
+            
+          }else {
+            return $picture['error'];
+          }
+
+
+
+            // create session variable
+			session_start();
+
+      // $_SESSION['fosterparent_id']= $row['fosterparent_id'];
+      $_SESSION['fosterkid_id']= $row['fosterkid_id'];
+			// $_SESSION['fname'] = $row['fosterparent_firstname'];
+			// $_SESSION['lname'] = $row['fosterparent_lastname'];
+      // $_SESSION['mycode'] = 'christophercolumbus'; // secrete code
+        //  //bind parameters
+        //  $statement->bind_param("ssssssi", $fosterkid_firstname, $fosterkid_lastname, $dateof_birth, $gender, $hobbies, $picture, $parent_id);
+
+        //   #execute
+        // $statement->execute();
+
+        
+
+        //     // check for errors
+        //     if ($statement->affected_rows == 1){
+
+				// 		return $this->dbconn->insert_id;
+				// }else{
+
+				// 	return false;
+				// }
 
         }
         #foster kid registration ends
@@ -603,6 +645,59 @@ class User{
 
       }
       //list foster kids method ends here
+
+
+      //begin get foster kids method
+
+    public function getfosterkids(){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("SELECT * FROM fosterkid LEFT JOIN fosterkid_medicalrecord ON fosterkid.fosterkid_id = fosterkid_medicalrecord.fosterkid_id");
+
+        //execute
+         $statement->execute();
+
+        // get result
+        $result = $statement->get_result();
+
+        $data = array();
+
+        if ($result->num_rows > 0) {
+
+            # fetch row
+            while ($row = $result->fetch_assoc()) {
+
+                $data[] = $row;
+            }
+        }
+
+        return $data;
+    }
+    //end get foster kids method
+
+
+    //begin insert request method
+
+    public function insertRequest($fosterparent_id, $fosterkid_id, $firstname, $lastname, $gender){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("INSERT INTO request(fosterparent_id, fosterkid_id, firstname, lastname, gender) VALUES(?,?,?,?,?)");
+
+        //bind parameters
+        
+        $statement->bind_param("iisss", $fosterparent_id, $fosterkid_id, $firstname, $lastname, $gender );
+
+        //execute statement
+        $statement->execute();
+
+        if ($statement->affected_rows == 1) {
+           return true;
+        }else {
+            return false;
+        }
+
+    }
+    //end insert request method
 
     
     
