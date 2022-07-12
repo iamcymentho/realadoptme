@@ -3,6 +3,23 @@ include_once("adminheader.php");
 
 ?>
 
+<?php
+
+//include user class
+include_once("shared/user.php");
+
+//create object of user
+$obj = new User();
+
+//access total birth parent method
+// $output = $obj->totalbirthparent($parent_id);
+
+//     echo "<pre>";
+//     print_r($output);
+//     echo "</pre>";
+
+?>
+
 <section>
             <!-- first section starts here -->
 

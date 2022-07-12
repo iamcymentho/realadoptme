@@ -86,7 +86,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="admintotalrequest.php">Totalrequest</a>
+                        <a class="nav-link" href="listrequests.php">Totalrequest</a>
                     </li>
 
                     <li class="nav-item">
@@ -98,7 +98,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.html">Logout</a>
+                        <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                     
                     

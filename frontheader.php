@@ -84,7 +84,7 @@ ob_start();
 
         <!--NavBar starts here-->
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><span
+            <a class="navbar-brand" href="index.php"><span
                     style="color: rgb(182, 62, 162); font-size: 30px;">AdoptMe</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -95,11 +95,11 @@ ob_start();
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link" href="about.php">About</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">Contact</a>
+                        <a class="nav-link" href="contactus.php">Contact</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -108,24 +108,22 @@ ob_start();
                             Register
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="birthparent.html">Birth parent</a></li>
-                            <li><a class="dropdown-item" href="adoptiveparent.html">Adoptive Parent</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="fosterkid.html">Kids up for adoption</a></li>
+                            <li><a class="dropdown-item" href="birthparent.php">Birth parent</a></li>
+                            <li><a class="dropdown-item" href="adoptiveparent.php">Adoptive Parent</a></li>
+                            
+                            
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="signin.html" tabindex="-1" aria-disabled="true">Sign In</a>
+                        <a class="nav-link " href="signin.php" tabindex="-1" aria-disabled="true">Sign In</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="team.html" tabindex="-1" aria-disabled="true">Team</a>
+                        <a class="nav-link " href="team.php" tabindex="-1" aria-disabled="true">Team</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="policy.html" tabindex="-1" aria-disabled="true">Policy</a>
+                        <a class="nav-link " href="policy.php" tabindex="-1" aria-disabled="true">Policy</a>
                     </li>
 
                 </ul>

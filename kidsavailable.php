@@ -257,6 +257,22 @@
 
         <p class="mt-2 mb-0">Gender: <?php echo $value['gender']; ?> </p> 
 
+         <p class=" mb-0">Age: 
+            
+         <?php
+
+         $bday = new DateTime($value['dateof_birth']); // Your date of birth
+            $today = new Datetime(date('m.d.y'));
+            $diff = $today->diff($bday);
+
+            printf('%d years, %d months, %d days', $diff->y, $diff->m, $diff->d);
+            printf("\n");
+         
+        
+         
+         
+         ?> </p> 
+
          <p class="mb-0">Hobbies: 
             
          <?php echo $value['hobbies']; ?> 

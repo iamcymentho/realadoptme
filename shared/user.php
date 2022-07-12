@@ -699,6 +699,125 @@ class User{
     }
     //end insert request method
 
+
+    //grant request method starts
+
+    public function grantRequest($birthparent_id, $fosterkid_id,$fosterparent_id,$firstname, $lastname, $gender){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("INSERT INTO totaladoption(birthparent_id,fosterkid_id,fosterparent_id, firstname, lastname, gender) VALUES(?,?,?,?,?,?)");
+
+        //bind parameters
+        
+        $statement->bind_param("iiisss",$birthparent_id, $fosterparent_id, $fosterkid_id, $firstname, $lastname, $gender );
+
+        //execute statement
+        $statement->execute();
+
+        if ($statement->affected_rows == 1) {
+
+           # redirect to listclubs
+            $msg = "Request was successfully granted!";
+            header("Location: listrequests.php?m=$msg");
+            exit;
+        }else {
+            
+          # redirect to listclubs
+            $msg = "Oops! Couldnt grant request";
+            header("Location: listrequests.php?err=$msg");
+            exit;
+        }
+
+    }
+    //grant request method ends
+
+
+
+    //list foster kids method begins here
+
+      function listrequests(){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id
+        " );
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+               $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+      }
+      //list foster kids method ends here
+
+
+
+      //begin delete request method 
+
+    public function deleterequest($id){
+
+        //prepare the statement
+        $statement = $this->dbconn->prepare("DELETE FROM request WHERE request_id=?");
+
+        //bind param
+        $statement->bind_param("i", $id);
+
+        //execute
+        $statement->execute();
+
+        //check if  record was deleted
+        if ($statement->affected_rows == 1) {
+
+            # redirect to listclubs
+            $msg = "Request was successfully deleted!";
+            header("Location: listrequests.php?m=$msg");
+            exit;
+        }else {
+            # redirect to listclubs
+            $msg = "Oops! Couldnt delete request";
+            header("Location: listrequests.php?err=$msg");
+            exit;
+        }
+    }
+
+    //end delete request method
+
+
+    //begin total birth parent method
+
+    public function totalbirthparent($parent_id){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT parent_id FROM birthparent");
+
+      //bind param
+        $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total birth parent method
+
     
     
    #begin logout function 
