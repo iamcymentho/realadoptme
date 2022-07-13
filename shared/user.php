@@ -795,16 +795,14 @@ class User{
 
     //end delete request method
 
-
     //begin total birth parent method
-
-    public function totalbirthparent($parent_id){
+    public function totalbirthparent(){
 
       //prepare statement
       $statement = $this->dbconn->prepare("SELECT parent_id FROM birthparent");
 
-      //bind param
-        $statement->bind_param("i", $parent_id);
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
 
       //execute statement
       $statement->execute();
@@ -817,6 +815,76 @@ class User{
 
     }
     //end total birth parent method
+
+
+
+    //begin total adoptive parent method
+
+    public function totaladoptiveparent(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT fosterparent_id FROM fosterparent");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total adoptive parent method
+
+
+    //begin totalfoster kid method
+
+    public function totalfosterkid(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT fosterkid_id FROM fosterkid");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total foster kid method
+
+
+    //begin total request method
+
+    public function totalrequests(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT request_id FROM request");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total request method
 
     
     

@@ -12,7 +12,15 @@ include_once("shared/user.php");
 $obj = new User();
 
 //access total birth parent method
-// $output = $obj->totalbirthparent($parent_id);
+$output = $obj->totalbirthparent();
+
+$adoptiveparent = $obj->totaladoptiveparent();
+
+$fosterkids = $obj->totalfosterkid();
+
+$noofrequest = $obj->totalrequests();
+
+// $users = $obj->totalusers();
 
 //     echo "<pre>";
 //     print_r($output);
@@ -52,7 +60,7 @@ $obj = new User();
                 
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">70</h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $output?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report (  birth parent's accounts )</small></a>
                         </div>
@@ -67,7 +75,7 @@ $obj = new User();
                         </div>
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">100</h1>
+                    <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $adoptiveparent?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report (  adoptive parent's 
                                 </small></a>
@@ -80,11 +88,11 @@ $obj = new User();
                 <div class="col-md-3 mt-4">
                     <div class="card  mt-3 shadow" style="background-color:rgba(0,128,128,0.7)">
                         <div class="card-title">
-                            <p class="text-white mt-4 myadmintext m-3"><i class="fa-solid fa-users fa-2x"></i> Payment </p>
+                            <p class="text-white mt-4 myadmintext m-3"><i class="fa-solid fa-users fa-2x"></i> Total foster kids </p>
                         </div>
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">$$</h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $fosterkids?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Payment details )
                                 </small></a>
@@ -108,7 +116,7 @@ $obj = new User();
                         </div>
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">69</h1>
+                        <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $noofrequest?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - Total requests
                                     )</small></a>
