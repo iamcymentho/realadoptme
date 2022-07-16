@@ -22,7 +22,7 @@ if (isset($_REQUEST['btndelete'])) {
     $obj = new User();
 
     //make use of delete method 
-    $obj->deleterequest($_REQUEST['requestid']);
+    $obj->updaterequeststatusdecline($_REQUEST['requestid']);
 }
 
 if (isset($_REQUEST['btncancel'])) {

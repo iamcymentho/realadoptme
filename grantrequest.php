@@ -13,22 +13,23 @@ include_once("adminheader.php");
 
 <?php 
 
-if (isset($_REQUEST['btngrant'])) {
+if (isset($_REQUEST['btngrant']) ) {
 
     # import file
     include_once("shared/user.php");
 
-    include_once("listrequests.php");
+    // include_once("listrequests.php");
 
     //create object
     $obj = new User();
 
-    //make use of grant request method 
-    $obj->grantRequest($_SESSION['birthparent_id'], $_POST['fosterkid_id'], $_SESSION['fosterparent_id'], $_POST['firstname'], $_POST['lastname'], $_POST['gender']);
+    $output = $obj->updaterequeststatus($_REQUEST['requestid']);
 
     // echo "<pre>";
     // print_r($obj);
     // echo "</pre>";
+
+     
 }
 
 if (isset($_REQUEST['btncancel'])) {
@@ -58,7 +59,9 @@ if (isset($_REQUEST['btncancel'])) {
 
     <form  enctype="multipart/form-data" action="grantrequest.php?requestid=<?php echo $_REQUEST['requestid']?>&firstname=<?php echo $_REQUEST['firstname']?>&lastname=<?php echo $_REQUEST['lastname']?>" method="POST">
 
-        <button type="submit" name="btngrant" class="btn btn-success">Yes</button>
+    
+
+        <button type="submit" name="btngrant" class="btn btn-success" >Yes</button>
         <button type="submit" name="btncancel" class="btn btn-secondary">No</button>
 
     </form>

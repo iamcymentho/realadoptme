@@ -6,14 +6,10 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-      <small class="myheading text-muted text-decoration-underline" >List of requests</small>
+      <small class="myheading text-muted text-decoration-underline" >Declined requests</small>
     </h1>
 
-    <a href="approved.php" class="btn btn-success mb-3 myadmintext">Approved</a>
-
-    <a href="pending.php" class="btn btn-secondary mb-3 myadmintext">Pending</a>
-
-    <a href="declined.php" class="btn btn-danger mb-3 myadmintext">Declined</a>
+    <a href="listrequests.php" class="btn btn-secondary mb-3 myadmintext">Back</a>
 
         <div class="w-75">
 
@@ -61,7 +57,7 @@
 
       <div class="card">
         <div class="card-header bg-secondary ">
-            <h3 class="myadmintext text-white">List of requests</h3>
+            <h3 class="myadmintext text-white">List of declined requests</h3>
                     </div>
 
                     <div class="card-body">
@@ -96,7 +92,7 @@
                 #create club object
                 $userobj = new User();
                 
-                $output = $userobj->listrequests();
+                $output = $userobj->declinedrequest();
 
                 // echo "<pre>";
                 // print_r($output);
@@ -137,9 +133,9 @@
 
                             <td>
                              
-                            <a href="grantrequest.php?requestid=<?php echo $request_id?>&firstname=<?php echo $value['firstname']; ?>&lastname=<?php echo $value['lastname']; ?>&reqstatus=<?php echo $value['requeststatus']; ?>" class="btn btn-success" id="btnaccept">Accept</a>
+                            <a href="" class="btn btn-danger disabled" id="btnaccept" >Declined</a>
 
-                            <a href="deleterequest.php?requestid=<?php echo $request_id?>&firstname=<?php echo $value['firstname']; ?>&lastname=<?php echo $value['lastname']; ?>&reqstatus=<?php echo $value['requeststatus']; ?>" class="btn btn-danger" id="btndecline">Decline</a>
+                            
             
                     
                      </td>

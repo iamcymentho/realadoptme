@@ -886,7 +886,267 @@ class User{
     }
     //end total request method
 
+
+    //begin total request pending method
+
+    public function totalrequestspending(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT request_id FROM request WHERE requeststatus = 'pending';");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total request pending method
+
+
+    //begin total request declined method
+
+    public function totalrequestsdeclined(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT request_id FROM request WHERE requeststatus = 'declined';");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total request declined method
+
+
+    //begin total request approved method
+
+    public function totalrequestsapproved(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT request_id FROM request WHERE requeststatus = 'approved';");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total request approved method
+
+
+    //begin total request approved method
+
+    public function totalusers(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT parent_id, fosterparent_id FROM birthparent, fosterparent;");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total request approved method
+
+
+    //update request status approve starts here
+
+    public function updaterequeststatus($request_id){
+
+        // check if paystack amount correlates with portal amount
+
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("UPDATE request SET requeststatus=? WHERE request_id=?");
+
+        //bind parameters
+        $requeststatus = "approved";
+        $statement->bind_param("si", $requeststatus, $request_id);
+
+        //execute statement
+        $statement->execute();
+
+        if ($statement->affected_rows == 1) {
+
+           # redirect to listclubs
+            $msg = "Request was successfully approved!";
+            header("Location: approved.php?m=$msg");
+            exit;
+        }else {
+
+            # redirect to listclubs
+            $msg = "Oops! Couldnt approve request";
+            header("Location: listrequests.php?err=$msg");
+            exit;
+        }
+
+    }
+
+
+    //update request status approve ends 
     
+
+
+    //update request status  decline starts here
+
+    public function updaterequeststatusdecline($request_id){
+
+        // check if paystack amount correlates with portal amount
+
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("UPDATE request SET requeststatus=? WHERE request_id=?");
+
+        //bind parameters
+        $requeststatus = "declined";
+        $statement->bind_param("si", $requeststatus, $request_id);
+
+        //execute statement
+        $statement->execute();
+
+        if ($statement->affected_rows == 1) {
+
+           # redirect to listclubs
+            $msg = "Request was successfully declined!";
+            header("Location: declined.php?m=$msg");
+            exit;
+        }else {
+
+            # redirect to listclubs
+            $msg = "Oops! Couldnt decline request";
+            header("Location: listrequests.php?err=$msg");
+            exit;
+        }
+
+    }
+
+
+    //update request status decline ends here
+
+
+    //approved request method starts here
+
+    function approvedrequest(){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'approved';
+        " );
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+               $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+      }
+      // approved  request method ends here
+
+    
+
+      //approved request method starts here
+    
+    function pendingrequest(){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'pending';
+        " );
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+               $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+      }
+      //pending request method ends here
+
+
+      //approved request method starts here
+    
+    function declinedrequest(){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'declined';
+        " );
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+               $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+      }
+      //pending request method ends here
+
     
    #begin logout function 
 

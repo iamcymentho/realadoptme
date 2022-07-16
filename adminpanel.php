@@ -11,6 +11,8 @@ include_once("shared/user.php");
 //create object of user
 $obj = new User();
 
+$totalusers = $obj->totalusers();
+
 //access total birth parent method
 $output = $obj->totalbirthparent();
 
@@ -19,6 +21,13 @@ $adoptiveparent = $obj->totaladoptiveparent();
 $fosterkids = $obj->totalfosterkid();
 
 $noofrequest = $obj->totalrequests();
+
+$pending = $obj->totalrequestspending();
+
+$declined = $obj->totalrequestsdeclined();
+
+$approved = $obj->totalrequestsapproved();
+
 
 // $users = $obj->totalusers();
 
@@ -42,7 +51,7 @@ $noofrequest = $obj->totalrequests();
 
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">150</h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $totalusers?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - Total active users )</small></a>
                         </div>
@@ -134,7 +143,7 @@ $noofrequest = $obj->totalrequests();
                         </div>
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">13</h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $pending?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - Total pending
                                     )</small></a>
@@ -152,7 +161,7 @@ $noofrequest = $obj->totalrequests();
                         </div>
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">15</h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $declined?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - Total declined )</small></a>
                         </div>
@@ -169,7 +178,7 @@ $noofrequest = $obj->totalrequests();
                         </div>
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">40</h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $approved?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - request granted
                                     )</small></a>
