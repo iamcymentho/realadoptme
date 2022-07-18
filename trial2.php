@@ -157,6 +157,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <!-- container fluid ends here -->
             <!-- </div> --> 
 
+     <style>
+            .trialfooter{
+                margin-left: 600px;
+            }
+        </style>       
+
 
         <nav class="navbar navbar-dark bg-dark shadow">
 
@@ -209,7 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="row">
 
-    <img src="images/adoption2.jpg" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3">
+    <img src="images/profilepicture.png" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3">
 
     </div>
 
@@ -218,7 +224,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <a href="kidsavailable.php" class="btn btn-light" id="btnregister">View kids available</a>
 
-                <button class="btn btn-light mt-3" id="btnregister">Logout</button>
+                <button class="btn btn-light mt-3" id="btnregister">Upload profile picture</button>
 
                 </div>
 
@@ -811,7 +817,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </script>
 
 
-<footer class="bg-dark text-white p-3 mt-3 shadow">
+<footer class="bg-dark text-white p-1 mt-3 shadow">
 
-<p class="">All rights reserved</p>
+<p class="trialfooter mt-3 text-muted" >@copyright. All rights reserved</p>
 </footer> 

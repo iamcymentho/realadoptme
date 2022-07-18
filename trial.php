@@ -76,6 +76,12 @@
 
         <!-- </section> --> 
 
+        <style>
+            .trialfooter{
+                margin-left: 600px;
+            }
+        </style>
+
         <?php
         
         include_once("trialheader.php");
@@ -101,7 +107,7 @@
 
             <div class="row">
 
-    <img src="images/adoption2.jpg" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3">
+    <img src="images/profilepicture.png" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3">
 
     </div>
 
@@ -682,7 +688,7 @@
     </script>
 
 
-<footer class="bg-dark text-white p-3 mt-3 shadow">
+<footer class="bg-dark text-white p-1 mt-3 shadow">
 
-<p class="">All rights reserved</p>
+<p class="trialfooter mt-3 text-muted" >@copyright. All rights reserved</p>
 </footer> 

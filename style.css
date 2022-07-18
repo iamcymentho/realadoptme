@@ -903,7 +903,10 @@ top: 70px;
        } 
 
 
-       
+       /* users dashboard footer styling */
+       .trialfooter{
+        margin-left: 200px;
+       }
 
 
        @media(max-width:990px){

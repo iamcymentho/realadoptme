@@ -28,51 +28,41 @@ include_once("frontheader.php");
 
                         $loginresult1 = $obj->fosterparentlogin($_POST['lgemail'], $_POST['lgpassword']);
 
-                        $loginresult2 = $obj->adminlogin($_POST['lgemail'], $_POST['lgpassword']);
-
                         // var_dump($loginresult);
 
                         // var_dump($loginresult1);
 
-                        var_dump($loginresult2);
 
-
-                        if ($loginresult == true) {
+                        if ($loginresult == true ) {
 
                             // redirect user to landing page
 
                             header("Location: trial.php");
                             exit();
+                            
+                        }else if ($loginresult1 == true) {
+                            
+                            //redirect user to landing page
+
+                           header("Location: trial2.php");
+                           exit();
                         }else{
 
                             echo "<div class='alert alert-danger'>Invalid email address or password</div>";
                         }
 
 
-                        if ($loginresult1 == true) {
+                        // if ($loginresult1 == true) {
 
-                            // redirect user to landing page
+                        //     // redirect user to landing page
 
-                            header("Location: trial2.php");
-                            exit();
-                        }else{
+                        //     header("Location: trial2.php");
+                        //     exit();
+                        // }else{
 
-                            echo "<div class='alert alert-danger'>Invalid email address or password</div>";
-                        }
-
-
-
-                        if ($loginresult2 == true) {
-
-                            // redirect user to landing page
-
-                            header("Location: adminpanel.php");
-                            exit();
-                        }else{
-
-                            echo "<div class='alert alert-danger'>Invalid email address or password</div>";
-                        }
-
+                        //     echo "<div class='alert alert-danger'>Invalid email address or password</div>";
+                        // }
+                    
                     }
 
                 		

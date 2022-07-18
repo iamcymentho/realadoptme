@@ -604,6 +604,12 @@ class User{
             //check if password match
         if (password_verify($password, $row['password'])) {
 
+          //start session
+          session_start();
+
+			$_SESSION['lgemail'] = $row['emailaddress'];
+      $_SESSION['mycode'] = 'christophercolumbus'; // secrete code
+
             return true;
         }else{
 
@@ -656,6 +662,12 @@ class User{
 
         //execute
          $statement->execute();
+
+         // create session variable
+			    session_start();
+
+      // $_SESSION['fosterparent_id']= $row['fosterparent_id'];
+      $_SESSION['fosterparent_id']= $row['fosterparent_id'];
 
         // get result
         $result = $statement->get_result();
@@ -1164,7 +1176,20 @@ class User{
            #end logout function  
            
            
+//begin admin logout function 
 
+     function adminlogout(){
+
+        session_start();
+        session_destroy();
+
+        #redirect to login
+        header("Location: adminlogin.php");
+        exit();
+
+         }
+
+           #end admin logout function  
 
 }
 

@@ -51,7 +51,7 @@ $approved = $obj->totalrequestsapproved();
 
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $totalusers?></h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber">43</h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - Total active users )</small></a>
                         </div>
@@ -103,7 +103,7 @@ $approved = $obj->totalrequestsapproved();
                             <div class="card-text ">
                                 <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $fosterkids?></h1>
                             </div>
-                            <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Payment details )
+                            <a href="" class="mt-3 text-white myadmintext"><small>View Report (Usage - Total foster kids accounts )
                                 </small></a>
                         </div>
                         <!-- card ends here -->

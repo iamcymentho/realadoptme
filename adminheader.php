@@ -63,6 +63,41 @@
 <body>
 
 
+<?php
+
+#start session
+session_start();
+
+if (!isset($_SESSION['mycode']) && $_SESSION['mycode']!='christophercolumbus') {
+
+    # redirect to login
+    $msg = "Access denied!";
+    
+    header("Location: adminlogin.php?m=$msg");
+
+    exit;
+}
+
+// echo "<pre>";
+// print_r($_SESSION);
+// echo "</pre>";
+
+#sanitize function
+
+function sanitizeInput($data){
+    
+  $data = trim($data); // trim spaces
+  $data = htmlspecialchars($data); // avoid html entities
+  $data = addslashes($data); // escape slashes
+
+  return $data;
+
+
+
+}
+
+?>
+
 
 
     <div class="container-fluid">
@@ -94,18 +129,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="totaladoption.html">Payment</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="adminlogout.php">Logout</a>
                     </li>
                     
                     
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
             </div>
         </div>
