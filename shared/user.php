@@ -119,19 +119,18 @@ class User{
         if ($result->num_rows == 1) {
             $row = $result->fetch_assoc();
 
-            
-
             //check if password match
         if (password_verify($password, $row['password'])) {
 
             
-            // create session variable
+       // create session variable
 			session_start();
 
       // $_SESSION['fosterparent_id']= $row['fosterparent_id'];
       $_SESSION['parent_id']= $row['parent_id'];
 			$_SESSION['fname'] = $row['parent_firstname'];
 			$_SESSION['lname'] = $row['parent_lastname'];
+      $_SESSION['profilepicture'] = $row['picture'];
       $_SESSION['mycode'] = 'christophercolumbus'; // secrete code
 
             return true;
@@ -178,9 +177,9 @@ class User{
         //birth parent medical record ends here
 
 
-        function peradoptiveregister($fosterparent_firstname, $fosterparent_lastname, $fosterparent_dateof_birth, $emailaddress, $fosterparent_username, $fosterparent_password, $fosterparent_address, $picture){
+        function peradoptiveregister($fosterparent_firstname, $fosterparent_lastname, $fosterparent_dateof_birth, $emailaddress, $fosterparent_username, $fosterparent_password, $fosterparent_address){
 
-              $picture = "image";
+              // $picture = "image";
 
                // encrypt password
 		 $pwd = password_hash($fosterparent_password, PASSWORD_DEFAULT);
@@ -188,8 +187,19 @@ class User{
          //prepare statement for database
          $statement = $this->dbconn->prepare("INSERT INTO fosterparent(fosterparent_firstname, fosterparent_lastname, fosterparent_dateof_birth, emailaddress, fosterparent_username, fosterparent_password, fosterparent_address, picture) VALUES(?,?,?,?,?,?,?,?)");
 
-         //bind parameters
-         $statement->bind_param("ssssssss", $fosterparent_firstname, $fosterparent_lastname, $fosterparent_dateof_birth, $emailaddress, $fosterparent_username, $pwd, $fosterparent_address, $picture );
+         //create extentions
+            $ext = array('jpg', 'png', 'jpeg', 'gif');
+
+            //create common object
+            $obj = new Common;
+            $picture = $obj->uploadAnyFile("fosterphotos/pictures/", 1048576, $ext);
+
+            if (array_key_exists('success', $picture)) {
+              
+              $filename = $picture['success'];
+
+              //bind parameters
+         $statement->bind_param("ssssssss", $fosterparent_firstname, $fosterparent_lastname, $fosterparent_dateof_birth, $emailaddress, $fosterparent_username, $pwd, $fosterparent_address, $filename );
 
           #execute
         $statement->execute();
@@ -200,7 +210,25 @@ class User{
 				}else{
 
 					return false;
-				}
+				}  
+              
+            }else {
+              return $filename['error'];
+            }
+
+        //  //bind parameters
+        //  $statement->bind_param("ssssssss", $fosterparent_firstname, $fosterparent_lastname, $fosterparent_dateof_birth, $emailaddress, $fosterparent_username, $pwd, $fosterparent_address, $picture );
+
+        //   #execute
+        // $statement->execute();
+
+        //     // check for errors
+        //     if ($statement->affected_rows == 1){
+				// 		return $this->dbconn->insert_id;
+				// }else{
+
+				// 	return false;
+				// }
 
         }
         //foster parent personal records end here having returned the insert_id which helps to input their financial record into a different table from the same form
@@ -371,7 +399,10 @@ class User{
       $_SESSION['fosterparent_id']= $row['fosterparent_id'];
 			$_SESSION['fname'] = $row['fosterparent_firstname'];
 			$_SESSION['lname'] = $row['fosterparent_lastname'];
+      $_SESSION['profile'] = $row['picture'];
       $_SESSION['mycode'] = 'christophercolumbus'; // secrete code
+
+      
 
             return true;
         }else{

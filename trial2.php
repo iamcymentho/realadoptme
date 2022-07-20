@@ -150,7 +150,7 @@
                 
                 </ul>
 
-  <!-- Navbar content -->
+  <! Navbar content -->
         <!-- </nav> -->
 
 
@@ -160,6 +160,13 @@
      <style>
             .trialfooter{
                 margin-left: 600px;
+            }
+
+             .w-250{
+                height: 230px;
+                 width:275px;
+                 border:2px solid white;
+                 
             }
         </style>       
 
@@ -215,7 +222,9 @@
 
             <div class="row">
 
-    <img src="images/profilepicture.png" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3">
+         <img src="fosterphotos/pictures/<?php echo $_SESSION['profile']?>" alt="myprofilepp" class=" img-fluid w-250 mx-auto shadow mb-3 p-2 bg-dark rounded">   
+<!-- 
+    <img src="images/profilepicture.png" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3"> -->
 
     </div>
 

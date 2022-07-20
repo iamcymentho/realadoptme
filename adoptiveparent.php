@@ -64,10 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       //create object of class
        $obj = new User();
 
-       $output = $obj->peradoptiveregister($_POST['firstname'], $_POST['lastname'], $_POST['dateofbirth'], $_POST['email'], $_POST['username'], $_POST['password'] , $_POST['homeaddress'], $_POST['picture']);
+       $output = $obj->peradoptiveregister($_POST['firstname'], $_POST['lastname'], $_POST['dateofbirth'], $_POST['email'], $_POST['username'], $_POST['password'] , $_POST['homeaddress']);
 
        if($output > 0){
-         $output1 = $obj->financeadoptiveregister($output, $_POST['profession'], $_POST['admaritalstatus'], $_POST['policereport'], $_POST['adresidency'], $_POST['income'], $_POST['admaritalstatus']);
+         $output1 = $obj->financeadoptiveregister($output, $_POST['profession'], $_POST['admaritalstatus'], $_POST['admaritalstatus'], $_POST['adresidency'], $_POST['income'], $_POST['admaritalstatus']);
     }
 
 
@@ -191,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="row p-2">
     <div class="col">
-        <input type="file" class="form-control " name="picture" aria-label="email address" id="adpicture">
+        <input type="file" class="form-control " name="myfile" aria-label="email address" id="adpicture">
 
         <small class=" companytextcolor">Upload a picture</small>
     </div>
@@ -209,14 +209,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 
-<div class="row p-2">
+<!-- <div class="row p-2">
     <div class="col">
         <input type="file" class="form-control " name="dnareport" aria-label="dna report" id="adfinancialrecord">
         <small class=" companytextcolor">Upload FINANCIAL records</small>
     </div>
 
     <!-- row ends here -->
-</div>
+<!-- </div> --> 
 
                        
 
