@@ -664,10 +664,10 @@ class User{
          $statement->execute();
 
          // create session variable
-			    session_start();
+			    // session_start();
 
       // $_SESSION['fosterparent_id']= $row['fosterparent_id'];
-      $_SESSION['fosterparent_id']= $row['fosterparent_id'];
+      
 
         // get result
         $result = $statement->get_result();
@@ -750,7 +750,7 @@ class User{
       function listrequests(){
 
         //prepare statement
-        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id ORDER BY requestdate DESC
         " );
 
         #execute
@@ -1071,7 +1071,7 @@ class User{
     function approvedrequest(){
 
         //prepare statement
-        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'approved';
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'approved' ORDER BY requestdate DESC;
         " );
 
         #execute
@@ -1103,7 +1103,7 @@ class User{
     function pendingrequest(){
 
         //prepare statement
-        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'pending';
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'pending' ORDER BY requestdate DESC;
         " );
 
         #execute
@@ -1134,7 +1134,7 @@ class User{
     function declinedrequest(){
 
         //prepare statement
-        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'declined';
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'declined' ORDER BY requestdate DESC;
         " );
 
         #execute
@@ -1158,6 +1158,36 @@ class User{
 
       }
       //pending request method ends here
+
+
+      //fetch birth parent method begins here
+
+      function fetchbirthparent(){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("SELECT * FROM birthparent" );
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+               $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+      }
+      //fetch birth parent method ends here
 
     
    #begin logout function 

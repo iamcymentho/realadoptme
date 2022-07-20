@@ -107,6 +107,8 @@
 
             <div class="row">
 
+           
+
     <img src="images/profilepicture.png" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3">
 
     </div>

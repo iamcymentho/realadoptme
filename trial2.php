@@ -5,114 +5,114 @@
 
 // include_once("frontheader.php");
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //validate inputs
+//     //validate inputs
 
-    if (empty($_POST['fkfirstname'])) {
-     $errors['fkfirstname'] = "Firstname field is required";
-         }
+//     if (empty($_POST['fkfirstname'])) {
+//      $errors['fkfirstname'] = "Firstname field is required";
+//          }
 
-    if (empty($_POST['fklastname'])) {
-    $errors['fklastname'] = "lastname field is required";
-         }
+//     if (empty($_POST['fklastname'])) {
+//     $errors['fklastname'] = "lastname field is required";
+//          }
 
-    if (empty($_POST['fkdateofbirth'])) {
-    $errors['fkdateofbirth'] = "date of birth field is required";
-                    }
+//     if (empty($_POST['fkdateofbirth'])) {
+//     $errors['fkdateofbirth'] = "date of birth field is required";
+//                     }
 
-     if (empty($_POST['fkgender'])) {
-    $errors['fkgender'] = "Gender field is required";
-                    }
+//      if (empty($_POST['fkgender'])) {
+//     $errors['fkgender'] = "Gender field is required";
+//                     }
 
-    if (empty($_POST['fkemail'])) {
-    $errors['fkemail'] = "Email field is required";
-                    }
+//     if (empty($_POST['fkemail'])) {
+//     $errors['fkemail'] = "Email field is required";
+//                     }
       
-    // if (empty($_POST['username'])) {
-    // $errors['username'] = "Username field is required";
-    //                 }                 
+//     // if (empty($_POST['username'])) {
+//     // $errors['username'] = "Username field is required";
+//     //                 }                 
 
-    // if (empty($_POST['password'])) {
-    // $errors['password'] = "Password field is required";
-    //  }else if(strlen($_POST['password']) <6){
+//     // if (empty($_POST['password'])) {
+//     // $errors['password'] = "Password field is required";
+//     //  }else if(strlen($_POST['password']) <6){
 
-    // $errors['password'] = "Password must be more than 5 characters";
+//     // $errors['password'] = "Password must be more than 5 characters";
 
-    //                 }
-    //   if (empty($_POST['gender'])) {
-    // $errors['gender'] = "Gender field is required";  //for picture field
-    //                 }   
+//     //                 }
+//     //   if (empty($_POST['gender'])) {
+//     // $errors['gender'] = "Gender field is required";  //for picture field
+//     //                 }   
     
-    // if (empty($_POST['fkhomeaddress'])) {
-    // $errors['homeaddress'] = "Home address field is required";
-    //         }
+//     // if (empty($_POST['fkhomeaddress'])) {
+//     // $errors['homeaddress'] = "Home address field is required";
+//     //         }
     
-    if (empty($_POST['fkmedicalchallenges'])) {
-    $errors['fkmedicalchallenges'] = "Message field is required";
-            }        
+//     if (empty($_POST['fkmedicalchallenges'])) {
+//     $errors['fkmedicalchallenges'] = "Message field is required";
+//             }        
 
 
-     if (empty($errors)) {
+//      if (empty($errors)) {
 
-        # sanitize input
+//         # sanitize input
 
-        include_once("shared/common.php");
+//         include_once("shared/common.php");
 
-         //creating object of common
-          $cmobj = new Common();
+//          //creating object of common
+//           $cmobj = new Common();
 
-         #make use of sanitize input method
-         $fkfirstname = $cmobj->sanitizeInputs($_POST['fkfirstname']);
-         $fklastname = $cmobj->sanitizeInputs($_POST['fklastname']);
-         $fkdateofbirth = $cmobj->sanitizeInputs($_POST['fkdateofbirth']);
-         $fkgender = $cmobj->sanitizeInputs($_POST['fkgender']);
-         $fkhobbies = $cmobj->sanitizeInputs($_POST['fkhobbies']);
+//          #make use of sanitize input method
+//          $fkfirstname = $cmobj->sanitizeInputs($_POST['fkfirstname']);
+//          $fklastname = $cmobj->sanitizeInputs($_POST['fklastname']);
+//          $fkdateofbirth = $cmobj->sanitizeInputs($_POST['fkdateofbirth']);
+//          $fkgender = $cmobj->sanitizeInputs($_POST['fkgender']);
+//          $fkhobbies = $cmobj->sanitizeInputs($_POST['fkhobbies']);
 
-        // $picture = $cmobj->sanitizeInputs($_POST['picture']); //picture field
+//         // $picture = $cmobj->sanitizeInputs($_POST['picture']); //picture field
         
-        // $medicalchallenges = $cmobj->sanitizeInputs($_POST['fkmedicalchallenges']);
+//         // $medicalchallenges = $cmobj->sanitizeInputs($_POST['fkmedicalchallenges']);
 
-        //include file 
-    include_once('shared/user.php');
+//         //include file 
+//     include_once('shared/user.php');
 
-    //create object of class
-    $obj = new User();
-
-    
-    $fosterparent = $_SESSION['fosterparent_id'];
-    $parent = $_SESSION['parent_id'];
-
-    $output = $obj->perfosterkid( $parent, $_POST['fkfirstname'], $_POST['fklastname'], $_POST['fkdateofbirth'], $_POST['fkgender'], $_POST['fkhobbies'], $_POST['picture']);
-
-    // if($output > 0){
-    // $output1 = $obj->medbirthregister($output, $_POST['bloodgroup'], $_POST['dnareport'], $_POST['medicalchallenges']);
-    // }
-
-
-    if ($output == true) {
-
-        //redirect to success page
-        // header("Location: signin.php");
-        }else{
-
-         $errors[] = "Oops! sonthing happed. Try again later.";
-         }
-
-
-        // if ($output1 == true) {
-
-        // //redirect to success page
-        // // header("Location: signin.php");
-        // }else{
-
-        //  $errors[] = "Oops! sonthing happed. Try again later.";
-        //  } 
-
-     }         
+//     //create object of class
+//     $obj = new User();
 
     
-}
+//     $fosterparent = $_SESSION['fosterparent_id'];
+//     $parent = $_SESSION['parent_id'];
+
+//     $output = $obj->perfosterkid( $parent, $_POST['fkfirstname'], $_POST['fklastname'], $_POST['fkdateofbirth'], $_POST['fkgender'], $_POST['fkhobbies'], $_POST['picture']);
+
+//     // if($output > 0){
+//     // $output1 = $obj->medbirthregister($output, $_POST['bloodgroup'], $_POST['dnareport'], $_POST['medicalchallenges']);
+//     // }
+
+
+//     if ($output == true) {
+
+//         //redirect to success page
+//         // header("Location: signin.php");
+//         }else{
+
+//          $errors[] = "Oops! sonthing happed. Try again later.";
+//          }
+
+
+//         // if ($output1 == true) {
+
+//         // //redirect to success page
+//         // // header("Location: signin.php");
+//         // }else{
+
+//         //  $errors[] = "Oops! sonthing happed. Try again later.";
+//         //  } 
+
+//      }         
+
+    
+// }
 
 ?>
 

@@ -40,8 +40,8 @@ include_once("frontdisplay.php");
 <!-- first accordion  -->
 
 <div class="accordion-item ">
-    <h2 class="accordion-header buttontext" id="flush-headingOne">
-        <button class="accordion-button collapsed bg-secondary htext " type="button" data-bs-toggle="collapse"
+    <h2 class="accordion-header buttontext"  id="flush-headingOne">
+        <button class="accordion-button collapsed bg-secondary htext  text-white" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"><i
                 class="fa-solid fa-plus" style="color:white;"></i>&nbsp;&nbsp;
             How much privacy can you guarantee?
@@ -61,7 +61,7 @@ include_once("frontdisplay.php");
 
 <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingTwo">
-        <button class="accordion-button collapsed bg-secondary htext" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed bg-secondary htext text-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo"><i
                 class="fa-solid fa-plus" style="color: white;"></i>&nbsp;&nbsp;
             How important is a DNA test?
@@ -81,7 +81,7 @@ include_once("frontdisplay.php");
 
 <div class="accordion-item ">
     <h2 class="accordion-header" id="flush-headingThree">
-        <button class="accordion-button collapsed bg-secondary htext" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed bg-secondary htext text-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"><i
                 class="fa-solid fa-plus" style="color: white;"></i>&nbsp;&nbsp;
             Will the brith and adoptive parents meet?
@@ -101,7 +101,7 @@ include_once("frontdisplay.php");
 
 <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingFour">
-        <button class="accordion-button collapsed bg-secondary htext" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed bg-secondary htext text-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour"><i
                 class="fa-solid fa-plus" style="color: white;"></i>&nbsp;&nbsp;
             Will there be background checks?
@@ -120,7 +120,7 @@ include_once("frontdisplay.php");
 
 <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingFive">
-        <button class="accordion-button collapsed bg-secondary htext" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed bg-secondary htext text-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive"><i
                 class="fa-solid fa-plus" style="color: white;"></i>&nbsp;&nbsp;
             I need to talk to an expert. Can you help?
@@ -139,7 +139,7 @@ include_once("frontdisplay.php");
 
 <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingSix">
-        <button class="accordion-button collapsed bg-secondary htext" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed bg-secondary htext text-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix"><i
                 class="fa-solid fa-plus" style="color: white;"></i>&nbsp;&nbsp;
             How long will the whole process take
@@ -158,7 +158,7 @@ include_once("frontdisplay.php");
 
 <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingSeven">
-        <button class="accordion-button collapsed bg-secondary htext" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed bg-secondary htext text-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven"><i
                 class="fa-solid fa-plus" style="color: white;"></i>&nbsp;&nbsp;
             Can a parent change his/her mind after initialization?
@@ -178,7 +178,7 @@ include_once("frontdisplay.php");
 
 <div class="accordion-item ">
     <h2 class="accordion-header" id="flush-headingEight">
-        <button class="accordion-button collapsed bg-secondary htext" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed bg-secondary htext text-light" type="button" data-bs-toggle="collapse"
             data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight"><i
                 class="fa-solid fa-plus" style="color: white;"></i>&nbsp;&nbsp;
             How reliable is the plateform?

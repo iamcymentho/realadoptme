@@ -7,7 +7,7 @@
     
 	// }
 
-    include_once("shared/user.php");
+    // include_once("shared/user.php");
 ?>
 <nav>
 	

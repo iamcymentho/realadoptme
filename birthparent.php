@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($output == true) {
 
-         echo "<div class='alert alert-success'>";
+         echo "<div class='alert alert-success mt-3'>";
 
          echo "Registration successfull. Click <a href='signin.php'>here</a> to login";
 
