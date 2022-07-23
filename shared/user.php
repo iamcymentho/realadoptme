@@ -98,6 +98,38 @@ class User{
         //end birth parent registration 
 
 
+        //get blood group method starts here 
+
+        function getbloodgroups(){
+
+          //prepare statement
+          $statement = $this->dbconn->prepare("SELECT bloodgroup_id, bloodgroup_name FROM bloodgroups");
+
+           #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+         if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+                     $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+
+        }
+
+        //get blood group method ends here
+
+
         //login function starts here
         
         function birthparentlogin($emailaddress, $password){
@@ -151,15 +183,15 @@ class User{
 
         //birth parent medical record
 
-        function medbirthregister($parent_id, $blood_group, $medical_challenges){
+        function medbirthregister($parent_id, $bloodgroup_id, $medical_challenges){
 
             $dna_report = "image";
 
             //prepare statement for database
-         $statement = $this->dbconn->prepare("INSERT INTO birthparent_medicalrecord(parent_id, blood_group, medical_challenges) VALUES(?,?,?)");
+         $statement = $this->dbconn->prepare("INSERT INTO birthparent_medicalrecord(parent_id, bloodgroup_id, medical_challenges) VALUES(?,?,?)");
 
             //bind parameters
-         $statement->bind_param("sss",$parent_id, $blood_group,  $medical_challenges);
+         $statement->bind_param("sis",$parent_id, $bloodgroup_id,  $medical_challenges);
 
            #execute
         $statement->execute();
@@ -296,6 +328,9 @@ class User{
             if ($statement->affected_rows == 1){
 
 						return $this->dbconn->insert_id;
+                        $msg = " Registration successfull";
+                         header("Location: trial.php?m=$msg");
+                    exit();
 				}else{
 
 					return false;
@@ -339,15 +374,15 @@ class User{
 
         //foster kid medical record
 
-        function medfosterkid($fosterkid_id, $blood_group, $allergies, $dna_report, $medical_challenge){
+        function medfosterkid($fosterkid_id, $bloodgroup_id, $allergies, $dna_report, $medical_challenge){
 
             $dna_report = "image";
 
             //prepare statement for database
-         $statement = $this->dbconn->prepare("INSERT INTO fosterkid_medicalrecord(fosterkid_id, blood_group, allergies, dna_report, medical_challenge) VALUES(?,?,?,?,?)");
+         $statement = $this->dbconn->prepare("INSERT INTO fosterkid_medicalrecord(fosterkid_id, bloodgroup_id, allergies, dna_report, medical_challenge) VALUES(?,?,?,?,?)");
 
             //bind parameters
-         $statement->bind_param("issss", $fosterkid_id, $blood_group, $allergies, $dna_report, $medical_challenge);
+         $statement->bind_param("iisss", $fosterkid_id, $bloodgroup_id, $allergies, $dna_report, $medical_challenge);
 
            #execute
         $statement->execute();
@@ -496,13 +531,13 @@ class User{
 
 
      //begin update parent medical details
-     function updateparentmedicdetails($blood_group, $medical_challenges, $parent_id){
+     function updateparentmedicdetails($bloodgroup_id, $medical_challenges, $parent_id){
 
       //prepare statement
-      $statement = $this->dbconn->prepare("UPDATE birthparent_medicalrecord SET blood_group=?, medical_challenges=? WHERE parent_id=?");
+      $statement = $this->dbconn->prepare("UPDATE birthparent_medicalrecord SET bloodgroup_id=?, medical_challenges=? WHERE parent_id=?");
 
       //bind parameters
-      $statement->bind_param("ssi",$blood_group, $medical_challenges, $parent_id);
+      $statement->bind_param("isi",$bloodgroup_id, $medical_challenges, $parent_id);
 
       //execute statement
       $statement->execute();
@@ -659,7 +694,7 @@ class User{
       function listfosterkids(){
 
         //prepare statement
-        $statement = $this->dbconn->prepare("SELECT * FROM fosterkid LEFT JOIN fosterkid_medicalrecord ON fosterkid.fosterkid_id = fosterkid_medicalrecord.fosterkid_id" );
+        $statement = $this->dbconn->prepare("SELECT * FROM fosterkid LEFT JOIN fosterkid_medicalrecord ON fosterkid.fosterkid_id = fosterkid_medicalrecord.fosterkid_id ORDER BY dateof_registration DESC" );
 
         #execute
         $statement->execute();

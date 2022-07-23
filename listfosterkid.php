@@ -34,10 +34,10 @@
                 <th>Gender</th>
                 <th>Hobbies</th>
                 <th>Picture</th>
-                <th>Blood Group</th>
                 <th>Allergies</th>
                 <th>DNA Report</th>
                 <th>Medical Challenges</th>
+                 <th>Date 0f registration</th>
 
                 </tr>
             </thead>
@@ -90,10 +90,10 @@
                             </td>
 
 
-                            <td><?php echo $value['blood_group']?></td>
                             <td><?php echo $value['allergies']?></td>
                             <td><?php echo $value['dna_report']?></td>
                             <td><?php echo $value['medical_challenge']?></td>
+                             <td><?php echo date('l jS F, Y', strtotime($value['dateof_submission']))?></td>
 
 
                             <!-- <td><?php 

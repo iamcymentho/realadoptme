@@ -160,24 +160,50 @@
          
 
          $status = $value['requeststatus'];
+
+          $progressreview = "<div class='progress mt-3'>
+  <div class='progress-bar progress-bar-striped bg-success progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 5%'></div>
+</div>";     
+
+         $progresspending = "<div class='progress mt-3'>
+  <div class='progress-bar progress-bar-striped bg-success progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%'></div>
+</div>";
+
+        $progressapproved = "<div class='progress mt-3'>
+  <div class='progress-bar progress-bar-striped bg-success progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 65%'></div>
+</div>";     
+
+ $progresscompleted = "<div class='progress mt-3'>
+  <div class='progress-bar progress-bar-striped bg-success progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 100%'></div>
+</div>";  
+
+$progressdeclined = "<div class='progress mt-3'>
+  <div class='progress-bar progress-bar-striped bg-danger progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 15%'></div>
+</div>";
+
          
          if ($value['requeststatus'] == "declined") {
 
     echo "<a class='btn btn-danger' disabled>$status</a>";
+    echo "$progressdeclined";
 
          }elseif ($value['requeststatus'] == "pending") {
             
     echo "<a class='btn btn-secondary' disabled>$status</a>";
+    echo "$progresspending";
 
          }elseif ($value['requeststatus'] == "approved") {
 
 echo "<a class='btn btn-warning text-white' disabled>$status</a>";
+echo "$progressapproved";
 
          }elseif ($value['requeststatus'] == "completed") {
 
 echo "<a class='btn btn-success text-white' disabled>$status</a>";
+echo "$progresscompleted";
          }else {
             echo "<a class='btn btn-primary text-white' disabled>In review</a>";
+            echo "$progressreview";
          }
          
          ?>

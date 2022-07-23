@@ -375,15 +375,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <div class="col">
-        <input type="text" class="form-control " name="bloodgroup" placeholder="Blood group" aria-label="bloodgroup"
-            id="bloodgroup" value="<?php
-
-                    if(isset($_POST['bloodgroup'])){
+<select name="bloodgroup" id="bloodgroup" class="form-select" value="<?php
+            
+                        if(isset($_POST['bloodgroup'])){
 
                         echo $_POST['bloodgroup'];
                     }
             
+            
             ?>">
+
+  <option value="">Choose bloodgroup</option>
+
+  <?php
+  
+  include("shared/user.php");
+
+  //create object of class
+    $obj = new User();
+  
+  $bloodgroups = $obj->getbloodgroups();
+
+  foreach($bloodgroups as $key => $bloodgroup){
+
+    $bloodgroupid = $bloodgroup['bloodgroup_id'];
+     $bloodgroupname = $bloodgroup['bloodgroup_name'];
+                            
+     echo "<option value='$bloodgroupid'>$bloodgroupname</option>";
+                
+               
+                }
+  
+  ?>
+
+</select>
     </div>
 
     <!-- row ends here -->

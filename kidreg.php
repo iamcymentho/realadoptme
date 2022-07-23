@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors['fkemail'] = "Email field is required";
                     }
       
-    // if (empty($_POST['username'])) {
-    // $errors['username'] = "Username field is required";
-    //                 }                 
+    if (empty($_POST['fkbloodgroup'])) {
+    $errors['fkbloodgroup'] = "Bloodgroup field is required";
+                    }                 
 
     // if (empty($_POST['password'])) {
     // $errors['password'] = "Password field is required";
@@ -100,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($output == true && $output1 == true) {
 
         $msg = "<div class='alert alert-success'>Registration Successful</div>";
+        echo "$msg";
 
         //redirect to dashboard page
         header("Location: trial.php");
@@ -109,18 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $msg = "<div class='alert alert-danger'>Oops! something happened. Try again later</div>";
         //  $errors[] = "Oops! sonthing happened. Try again later.";
          }
-
-
-        // if ($output1 == true) {
-
-        // //redirect to success page
-        // // header("Location: signin.php");
-        // }else{
-
-        //  $errors[] = "Oops! something happened. Try again later.";
-        //  } 
-
-
     
 
      }         
@@ -275,9 +264,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <div class="col-md-6">
 
-        <input type="text" class="form-control " name="fkbloodgroup" placeholder="Blood group" aria-label="blood group"
-                id="fkbloodgroup">
-      </div>
+        <select name="fkbloodgroup" id="fkbloodgroup" class="form-select">
+
+  <option value="">Choose bloodgroup</option>
+
+  <?php
+  
+  include("shared/user.php");
+
+  //create object of class
+    $obj = new User();
+  
+  $bloodgroups = $obj->getbloodgroups();
+
+  foreach($bloodgroups as $key => $bloodgroup){
+
+    $bloodgroupid = $bloodgroup['bloodgroup_id'];
+     $bloodgroupname = $bloodgroup['bloodgroup_name'];
+                            
+     echo "<option value='$bloodgroupid'>$bloodgroupname</option>";
+                
+               
+                }
+  
+  ?>
+
+</select>
+</div>
 
       </div>
 

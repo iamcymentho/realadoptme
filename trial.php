@@ -360,14 +360,14 @@
                             $email = sanitizeInput($_POST['email']);
                             $username = $_POST['username'];
                             $homeaddress = sanitizeInput($_POST['homeaddress']);
-                            $bloodgroup = sanitizeInput($_POST['bloodgroup']);
+                            // $bloodgroup = sanitizeInput($_POST['bloodgroup']);
                             $medicalchallenges = sanitizeInput($_POST['medicalchallenges']);
                             $parent_id = $_SESSION['parent_id'];
 
 
                        $data = $userobj->updateparentdetails($firstname, $lastname, $dateofbirth, $email, $username, $homeaddress, $parent_id  );  
 
-                       $datamed = $userobj->updateparentmedicdetails($bloodgroup, $medicalchallenges, $parent_id);
+                       $datamed = $userobj->updateparentmedicdetails($_POST['bloodgroup'], $medicalchallenges, $parent_id);
                        
                        
                                 #check if its successful
@@ -469,6 +469,17 @@
         ?>">
 
         <h3 class="mynumberheading">Update profile</h3>
+
+        <?php
+      if (isset($_REQUEST['m'])) {
+        # code...
+      ?>
+        <div class="alert alert-success">
+
+        <?php echo $_REQUEST['m']; ?>
+        </div>
+
+        <?php  }?>
 
         
 <div class="card p-3 shadow">
@@ -601,12 +612,35 @@
 
                 <div class="col-md-6 mt-3">
                     
-            <input type="text" class="form-control " name="bloodgroup" placeholder="Blood group" aria-label="bloodgroup"
-            id="bloodgroup"  value="<?php if(isset($medoutput['blood_group'])){
+           
 
-                    echo($medoutput['blood_group']);
+              <select name="bloodgroup" id="bloodgroup" class="form-select">
+                <option value="">Choose bloodgroup</option>
 
-              }?>">
+                <?php
+                
+                $bloodgroups = $userobj->getbloodgroups();
+
+  foreach($bloodgroups as $key => $bloodgroup){
+
+    $bloodgroupid = $bloodgroup['bloodgroup_id'];
+     $bloodgroupname = $bloodgroup['bloodgroup_name'];
+
+     if ($bloodgroupid== $medoutput['bloodgroup_id']) {
+
+        echo "<option value='$bloodgroupid' selected>$bloodgroupname</option>";
+     }else {
+        echo "<option value='$bloodgroupid'>$bloodgroupname</option>";
+     }
+                            
+     
+                
+               
+                }
+                
+                ?> 
+
+            </select>
             
                 </div>
 
