@@ -9,11 +9,13 @@
       <small class="myheading text-muted text-decoration-underline" >List of requests</small>
     </h1>
 
-    <a href="approved.php" class="btn btn-success mb-3 myadmintext">Approved</a>
-
-    <a href="pending.php" class="btn btn-secondary mb-3 myadmintext">Pending</a>
+     <a href="pending.php" class="btn btn-secondary mb-3 myadmintext">Pending</a>
 
     <a href="declined.php" class="btn btn-danger mb-3 myadmintext">Declined</a>
+
+    <a href="approved.php" class="btn btn-warning text-white mb-3 myadmintext">Approved</a>
+
+    <a href="completed.php" class="btn btn-success mb-3 myadmintext">Completed</a>
 
     <a href="javascript:void(0)" class="btn btn-light mb-3 myadmintext"  onclick="start()">Pull</a>
 

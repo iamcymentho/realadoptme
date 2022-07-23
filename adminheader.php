@@ -51,7 +51,12 @@
         rel="stylesheet">
 
 
-    <style type="text/css">
+    <style>
+
+        .move{
+            
+        margin-left:350px;
+        }
        
         
     </style>
@@ -103,7 +108,7 @@ function sanitizeInput($data){
     <div class="container-fluid">
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow justify-content-center ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow  ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ADOPTME</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -111,7 +116,7 @@ function sanitizeInput($data){
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarScroll">
-                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                <ul class="navbar-nav  my-2 my-lg-0 navbar-nav-scroll move" style="--bs-scroll-height: 100px;">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="adminpanel.php">Dashboard</a>
                     </li>
@@ -124,9 +129,9 @@ function sanitizeInput($data){
                         <a class="nav-link" href="listrequests.php">Totalrequest</a>
                     </li>
 
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="admintotaladoption.php">Totaladoption</a>
-                    </li>
+                    </li> -->
 
                     <li class="nav-item">
                         <a class="nav-link" href="adminlogout.php">Logout</a>

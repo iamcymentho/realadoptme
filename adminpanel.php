@@ -11,8 +11,6 @@ include_once("shared/user.php");
 //create object of user
 $obj = new User();
 
-$totalusers = $obj->totalusers();
-
 //access total birth parent method
 $output = $obj->totalbirthparent();
 
@@ -27,6 +25,8 @@ $pending = $obj->totalrequestspending();
 $declined = $obj->totalrequestsdeclined();
 
 $approved = $obj->totalrequestsapproved();
+
+$totalusers = $output + $adoptiveparent;
 
 
 // $users = $obj->totalusers();
@@ -51,7 +51,7 @@ $approved = $obj->totalrequestsapproved();
 
                         <div class="card-body">
                             <div class="card-text ">
-                                <h1 class="text-white text-decoration-underline subcardnumber">43</h1>
+                                <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $totalusers?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - Total active users )</small></a>
                         </div>

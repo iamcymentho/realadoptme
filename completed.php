@@ -6,7 +6,7 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-      <small class="myheading text-muted text-decoration-underline" >approved requests</small>
+      <small class="myheading text-muted text-decoration-underline" >Adoption completed</small>
     </h1>
 
     <a href="listrequests.php" class="btn btn-secondary mb-3 myadmintext">Back</a>
@@ -57,7 +57,7 @@
 
       <div class="card">
         <div class="card-header bg-secondary ">
-            <h3 class="myadmintext text-white">List of approved requests</h3>
+            <h3 class="myadmintext text-white">List of fully completed adoption requests</h3>
                     </div>
 
                     <div class="card-body">
