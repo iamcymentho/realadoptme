@@ -152,10 +152,10 @@
 
          <p class="mb-0">Hobbies: <?php echo $value['hobbies']; ?> </p>
          
-         <p class="mt-2 mb-3">Gender: <?php echo $value['gender']; ?> 
+         <p class="mt-2 mb-3">Registration Date: <?php echo date('l jS F, Y', strtotime($value['dateof_registration']))?>
         </p> 
 
-       <div>
+       <div>Adoption Status:
         <?php
          
 
@@ -173,11 +173,12 @@
 
 echo "<a class='btn btn-warning text-white' disabled>$status</a>";
 
-         }else{
+         }elseif ($value['requeststatus'] == "completed") {
 
-            echo "<a class='btn btn-success text-white' disabled>$status</a>";
+echo "<a class='btn btn-success text-white' disabled>$status</a>";
+         }else {
+            echo "<a class='btn btn-primary text-white' disabled>In review</a>";
          }
-         
          
          ?>
        </div>

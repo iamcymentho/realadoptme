@@ -33,7 +33,7 @@ class User{
 
         //begin birth parent registration 
 
-        function perbirthregister($parent_firstname, $parent_lastname, $parent_date_of_birth, $gender, $emailaddress, $username, $password, $parent_address){
+        function perbirthregister($parent_firstname, $parent_lastname, $parent_date_of_birth, $partnersfirstname, $partnerslastname, $partnersemail, $partnersdateofbirth, $gender, $emailaddress, $username, $password, $parent_address){
 
             // $picture = "image";
 
@@ -41,7 +41,7 @@ class User{
 		 $pwd = password_hash($password, PASSWORD_DEFAULT);
 
          //prepare statement for database
-         $statement = $this->dbconn->prepare("INSERT INTO birthparent(parent_firstname, parent_lastname, parent_date_of_birth, gender, emailaddress, username, password, picture, parent_address) VALUES(?,?,?,?,?,?,?,?,?)");
+         $statement = $this->dbconn->prepare("INSERT INTO birthparent(parent_firstname, parent_lastname, parent_date_of_birth, partnersfirstname, partnerslastname, partnersemail, partnersdateofbirth, gender, emailaddress, username, password, picture, parent_address) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
          //create extentions
             $ext = array('jpg', 'png', 'jpeg', 'gif');
@@ -60,7 +60,7 @@ class User{
                 $filename = $picture['success'];
 
                 //bind parameters
-            $statement->bind_param("sssssssss",$parent_firstname, $parent_lastname, $parent_date_of_birth, $gender, $emailaddress, $username, $pwd, $filename, $parent_address);
+            $statement->bind_param("sssssssssssss",$parent_firstname, $parent_lastname, $parent_date_of_birth, $partnersfirstname, $partnerslastname, $partnersemail, $partnersdateofbirth, $gender, $emailaddress, $username, $pwd, $filename, $parent_address);
 
             #execute
           $statement->execute();

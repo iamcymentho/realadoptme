@@ -21,6 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $errors['dateofbirth'] = "date of birth field is required";
                     }
 
+    if (empty($_POST['partnersfirstname'])) {
+    $errors['partnersfirstname'] = "Partner's first name field is required";
+                    }     
+                    
+    if (empty($_POST['partnerslastname'])) {
+    $errors['partnerslastname'] = "Partner's last name field is required";
+                    }  
+                    
+    if (empty($_POST['partnersemail'])) {
+    $errors['partnersemail'] = "Partner's Email field is required";
+                    }  
+                    
+    if (empty($_POST['partnersdateofbirth'])) {
+    $errors['partnersdateofbirth'] = "Partner's date of birth field is required";
+                    }                   
+
      if (empty($_POST['gender'])) {
     $errors['gender'] = "Gender field is required";
                     }
@@ -68,6 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          $firstname = $cmobj->sanitizeInputs($_POST['firstname']);
          $lastname = $cmobj->sanitizeInputs($_POST['lastname']);
          $dateofbirth = $cmobj->sanitizeInputs($_POST['dateofbirth']);
+         $partnersfirstname = $cmobj->sanitizeInputs($_POST['partnersfirstname']);
+         $partnerslastname = $cmobj->sanitizeInputs($_POST['partnerslastname']);
+         $partnersemail = $cmobj->sanitizeInputs($_POST['partnersemail']);
+         $partnersdateofbirth = $cmobj->sanitizeInputs($_POST['partnersdateofbirth']);
+
          $gender = $cmobj->sanitizeInputs($_POST['gender']);
          $email = $cmobj->sanitizeInputs($_POST['email']);
         // $picture = $cmobj->sanitizeInputs($_POST['picture']); //picture field
@@ -79,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     //create object of class
     $obj = new User();
-    $output = $obj->perbirthregister($_POST['firstname'], $_POST['lastname'], $_POST['dateofbirth'], $_POST['gender'], $_POST['email'], $_POST['username'], $_POST['password'], $_POST['homeaddress']);
+    $output = $obj->perbirthregister($_POST['firstname'], $_POST['lastname'], $_POST['dateofbirth'], $_POST['partnersfirstname'], $_POST['partnerslastname'], $_POST['partnersemail'], $_POST['partnersdateofbirth'], $_POST['gender'], $_POST['email'], $_POST['username'], $_POST['password'], $_POST['homeaddress']);
 
     if($output > 0){
     $output1 = $obj->medbirthregister($output, $_POST['bloodgroup'], $_POST['medicalchallenges']);
@@ -208,6 +229,67 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
     <!-- row ends here -->
 </div>
+
+ <!-- birth parent partner's details starts here -->
+
+ <div class="row p-2 gy-3">
+    <div class="col-md">
+        <input type="text" class="form-control parentinput " name="partnersfirstname" placeholder="Partner's First name"
+            aria-label="partners first name" id="partnersfirstname" value="<?php
+            
+                        if(isset($_POST['partnersfirstname'])){
+
+                        echo $_POST['partnersfirstname'];
+                    }
+            
+            ?>">
+    </div>
+
+    <div class="col-md">
+        <input type="text" class="form-control parentinput " name="partnerslastname" placeholder="Partner's Last name"
+            aria-label="partners lastname" id="partnerslastname" value="<?php
+            
+                        if(isset($_POST['lastname'])){
+
+                        echo $_POST['lastname'];
+                    }
+            
+            ?>">
+    </div>
+    <!-- row ends here -->
+</div>
+
+
+<div class="row p-2 gy-3">
+    <div class="col">
+        <input type="email" class="form-control parentinput " name="partnersemail" placeholder="Partner's Email address"
+            aria-label="Partner's email address" id="partnersemail" value="<?php
+            
+                        if(isset($_POST['partnersemail'])){
+
+                        echo $_POST['partnersemail'];
+                    }
+            
+            
+            ?>">
+    </div>
+
+    <div class="col">
+        <input type="date" class="form-control " name="partnersdateofbirth" aria-label="date" id="partnersdateofbirth" value="<?php
+        
+                    if(isset($_POST['partnersdateofbirth'])){
+
+                        echo $_POST['partnersdateofbirth'];
+                    }
+        
+        ?>">
+        <small class=" companytextcolor"> Partner's date of birth</small>
+    </div>
+    <!-- row ends here -->
+</div>
+
+
+ <!-- birth parent partner's details ends here -->
 
 <div class="row p-2 gy-3">
     <div class="col">
