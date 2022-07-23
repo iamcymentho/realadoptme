@@ -92,7 +92,7 @@
                 #create club object
                 $userobj = new User();
                 
-                $output = $userobj->approvedrequest();
+                $output = $userobj->completedrequest();
 
                 // echo "<pre>";
                 // print_r($output);
@@ -133,9 +133,9 @@
 
                             <td>
                              
-                            <a href="" class="btn btn-warning text-white disabled" id="btnaccept" >Approved</a>
+                            <a href="" class="btn btn-success text-white disabled" id="btnaccept" >Completed</a>
 
-                            <a href="completing.php?requestid=<?php echo $request_id?>&firstname=<?php echo $value['firstname']; ?>&lastname=<?php echo $value['lastname']; ?>&reqstatus=<?php echo $value['requeststatus']; ?>" class="btn btn-success" id="btncomplete">Completed</a>
+                            
             
                     
                      </td>

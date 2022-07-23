@@ -15,6 +15,8 @@
 
     <a href="declined.php" class="btn btn-danger mb-3 myadmintext">Declined</a>
 
+    <a href="javascript:void(0)" class="btn btn-light mb-3 myadmintext"  onclick="start()">Pull</a>
+
         <div class="w-75">
 
     <?php
@@ -57,7 +59,7 @@
     
  
     <div class="row">
-      <div class="col-md-10 mb-4">
+      <div class="col-md-12 mb-4">
 
       <div class="card">
         <div class="card-header bg-secondary ">
@@ -191,6 +193,15 @@
 
   <!-- jquery script file -->
     <script type="text/javascript" src="jquery.min.js"></script>
+
+       <!-- linking to push         -->
+    <script src="mypush/push.min.js"></script>
+
+          <!-- linking to service worker        -->
+    <script src="mypush/serviceWorker.min.js"></script>
+
+    <!-- external javascript -->
+    <script src="push.js"></script>
 
     
 

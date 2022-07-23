@@ -133,7 +133,7 @@
 
                <a href="kidreg.php" class="btn btn-light" id="btnregister">Register kid</a>
 
-                <button class="btn btn-light mt-3" id="btnregister">Update profile picture</button>
+                <a href="parentkids.php" class="btn btn-light mt-3" id="btnregister">View Registered kids</a>
 
                 <!-- <button class="btn btn-light" id="btnregister">Register Kid</button> -->
 

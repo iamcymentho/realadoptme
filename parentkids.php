@@ -1,11 +1,11 @@
 
 <?php  
 	session_start();
-	if (!isset($_SESSION['fosterparent_id'])) {
+	// if (!isset($_SESSION['fosterparent_id'])) {
 
-		# redirect the unauthenticated user to login/index
-		 header("Location: signin.php");
-	}
+	// 	# redirect the unauthenticated user to login/index
+	// 	 header("Location: signin.php");
+	// }
 ?>
 
 <?php
@@ -28,7 +28,7 @@
     <style>
         .displaykidsheader{
 
-            margin-left:200px;
+            margin-left:130px;
         }
 
         .displaykidstext{
@@ -69,7 +69,7 @@
         <?php include_once("kidregnav.php"); ?>
 
         <div class="col-md-6 mb-3 backtodashboard">
-            <a href="trial2.php" class="btn btn-outline-primary htext">Back to dashboard</a>
+            <a href="trial.php" class="btn btn-outline-primary htext">Back to dashboard</a>
         </div>
 
 
@@ -77,10 +77,10 @@
 
       <div class="col-md-8">
 
-      <div class="card">
+      <div class="card w-75 mx-auto">
 
             <div class="card-title">
-                <h3 class="htext mt-3 displaykidsheader text-decoration-underline">Foster kids available for adoption</h3>
+                <h3 class="htext mt-3 displaykidsheader text-decoration-underline">Kids registered by <?php echo $_SESSION['fname']?> <?php echo $_SESSION['lname']?></h3>
                 
             </div>
 
@@ -106,7 +106,7 @@
           $obj = new User();
 
           //make reference to get foster kids method
-        $fosterkid = $obj->getfosterkids();
+        $kidregistered = $obj->birthparentkids($_SESSION['parent_id']);
 
     // echo "<pre>";
     // print_r($fosterkid);
@@ -114,10 +114,10 @@
 
         
 
-        if (count($fosterkid) > 0) {
+        if (count($kidregistered) > 0) {
             
             # loop thru the array using foreach
-            foreach ($fosterkid as $key => $value) {
+            foreach ($kidregistered as $key => $value) {
                 # code...
             
         
@@ -146,50 +146,49 @@
             printf('%d years, %d months, %d days', $diff->y, $diff->m, $diff->d);
             printf("\n");
          
-        
          
+         ?> 
+         </p> 
+
+         <p class="mb-0">Hobbies: <?php echo $value['hobbies']; ?> </p>
          
-         ?> </p> 
-
-         <p class="mb-0">Hobbies: 
-            
-         <?php echo $value['hobbies']; ?> 
-
-         <form method="post" action="insertrequests.php">
-
-
-                <input type="hidden" name="fosterkid_id" value="<?php echo $value['fosterkid_id']; ?>">
-
-                <input type="hidden" name="firstname" value="<?php echo $value['fosterkid_firstname']; ?>">
-
-                <input type="hidden" name="lastname" value="<?php echo $value['fosterkid_lastname']; ?>">
-
-                <input type="hidden" name="gender" value="<?php echo $value['gender']; ?>">
-
-                <input type="hidden" name="medicalchallenge" value="<?php echo $value['medical_challenge']; ?>">
-
-                <input type="hidden" name="mypicture" value="<?php echo $value['picture']; ?>">
-
-                <input type="submit" name="btnrequest" value="Make a request" class="btn btn-outline-primary mt-2">
-
-                </form>
-        
-        
+         <p class="mt-2 mb-3">Gender: <?php echo $value['gender']; ?> 
         </p> 
 
-        <hr>
+       <div>
+        <?php
+         
 
-            <!-- card-body ends here -->
+         $status = $value['requeststatus'];
+         
+         if ($value['requeststatus'] == "declined") {
+
+    echo "<a class='btn btn-danger' disabled>$status</a>";
+
+         }elseif ($value['requeststatus'] == "pending") {
+            
+    echo "<a class='btn btn-secondary' disabled>$status</a>";
+
+         }elseif ($value['requeststatus'] == "approved") {
+
+echo "<a class='btn btn-warning text-white' disabled>$status</a>";
+
+         }else{
+
+            echo "<a class='btn btn-success text-white' disabled>$status</a>";
+         }
+         
+         
+         ?>
+       </div>
+            
             </div>
             
-                <!-- card ends here -->
+               
             </div>
                 
 
             </div>
-
-           
-
 
         <?php 
         }
@@ -197,8 +196,10 @@
     }
         ?>
 
-      
 
+
+
+      
       <!-- col ends here -->
       </div>
 

@@ -148,6 +148,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         ?>
 
+        <style>
+           .trialfooter{
+                margin-left: 600px;
+            }
+        </style>
+
 
 
 
@@ -357,7 +363,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 
 
-    <footer class="bg-dark text-white p-3 mt-3 shadow">
+   <footer class="bg-dark text-white p-1 mt-3 shadow">
 
-<p class="">All rights reserved</p>
+<p class="trialfooter mt-3 text-muted" >@copyright. All rights reserved</p>
 </footer> 

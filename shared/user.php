@@ -689,7 +689,7 @@ class User{
     public function getfosterkids(){
 
         //prepare statement
-        $statement = $this->dbconn->prepare("SELECT * FROM fosterkid LEFT JOIN fosterkid_medicalrecord ON fosterkid.fosterkid_id = fosterkid_medicalrecord.fosterkid_id");
+        $statement = $this->dbconn->prepare("SELECT * FROM fosterkid LEFT JOIN fosterkid_medicalrecord ON fosterkid.fosterkid_id = fosterkid_medicalrecord.fosterkid_id ORDER BY dateof_registration DESC");
 
         //execute
          $statement->execute();
@@ -1026,7 +1026,6 @@ class User{
 
     public function updaterequeststatus($request_id){
 
-        // check if paystack amount correlates with portal amount
 
 
         //prepare statement
@@ -1160,7 +1159,7 @@ class User{
       //pending request method ends here
 
 
-      //approved request method starts here
+      //declined request method starts here
     
     function declinedrequest(){
 
@@ -1188,7 +1187,38 @@ class User{
          return $records;
 
       }
-      //pending request method ends here
+      //declined request method ends here
+
+
+      //completed request method starts here
+    
+    function completedrequest(){
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON request.fosterkid_id = fosterkid.fosterkid_id WHERE requeststatus = 'completed' ORDER BY requestdate DESC;
+        " );
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+               $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+      }
+      //completed request method ends here
 
 
       //fetch birth parent method begins here
@@ -1219,6 +1249,69 @@ class User{
 
       }
       //fetch birth parent method ends here
+
+       //fetch birth parent registered kids starts here
+
+      function birthparentkids($parent_id){
+
+        $statement = $this->dbconn->prepare("SELECT * FROM fosterkid LEFT JOIN request ON fosterkid.fosterkid_id = request.fosterkid_id WHERE parent_id=? ORDER BY requestdate DESC");
+
+        //bibd parameters
+        $statement->bind_param("i", $parent_id);
+        
+        #execute
+        $statement->execute();
+
+        //get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+
+                $records[] = $row;
+              }
+          
+        }
+
+        return $records;
+
+      }
+      //fetch birth parent registered kids ends here 
+
+
+      //update request status completed starts here
+
+    public function  updaterequeststatuscompleted($request_id){
+
+      //prepare statement
+        $statement = $this->dbconn->prepare("UPDATE request SET requeststatus=? WHERE request_id=?");
+
+        //bind parameters
+        $requeststatus = "completed";
+        $statement->bind_param("si", $requeststatus, $request_id);
+
+        //execute statement
+        $statement->execute();
+
+        if ($statement->affected_rows == 1) {
+
+           # redirect to listclubs
+            $msg = "Adoption process fullt completed !";
+            header("Location: completed.php?m=$msg");
+            exit;
+        }else {
+
+            # redirect to listclubs
+            $msg = "Oops! Couldnt complete request";
+            header("Location: approved.php?err=$msg");
+            exit;
+        }
+    }
+
+    //update request status completed ends here
 
     
    #begin logout function 

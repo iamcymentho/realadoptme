@@ -13,7 +13,7 @@ include_once("adminheader.php");
 
 <?php 
 
-if (isset($_REQUEST['btngrant']) ) {
+if (isset($_REQUEST['btncompleting']) ) {
 
     # import file
     include_once("shared/user.php");
@@ -23,7 +23,7 @@ if (isset($_REQUEST['btngrant']) ) {
     //create object
     $obj = new User();
 
-    $output = $obj->updaterequeststatus($_REQUEST['requestid']);
+    $output = $obj->updaterequeststatuscompleted($_REQUEST['requestid']);
 
     // echo "<pre>";
     // print_r($obj);
@@ -36,7 +36,7 @@ if (isset($_REQUEST['btncancel'])) {
     
     # redirect to list clubs
     $msg = "no action performed";
-    header("Location: listrequests.php?info=$msg");
+    header("Location: approved.php?info=$msg");
     exit();
 }
 
@@ -54,14 +54,14 @@ if (isset($_REQUEST['btncancel'])) {
     ?>
 
     <div class="alert alert-success">
-        <h3>Do you wish to proceed to grant <?php  echo $_REQUEST['firstname']; ?>  <?php  echo $_REQUEST['lastname']; ?>'s request?</h3>
+        <h3>Do you wish to proceed to complete this adoption process? <?php  echo $_REQUEST['firstname']; ?>  <?php  echo $_REQUEST['lastname']; ?>'s request?</h3>
     </div>
 
-    <form  enctype="multipart/form-data" action="grantrequest.php?requestid=<?php echo $_REQUEST['requestid']?>&firstname=<?php echo $_REQUEST['firstname']?>&lastname=<?php echo $_REQUEST['lastname']?>" method="POST">
+    <form  enctype="multipart/form-data" action="completing.php?requestid=<?php echo $_REQUEST['requestid']?>&firstname=<?php echo $_REQUEST['firstname']?>&lastname=<?php echo $_REQUEST['lastname']?>" method="POST">
 
     
 
-        <button type="submit" name="btngrant" class="btn btn-success" >Yes</button>
+        <button type="submit" name="btncompleting" class="btn btn-success" >Yes</button>
         <button type="submit" name="btncancel" class="btn btn-secondary">No</button>
 
         
