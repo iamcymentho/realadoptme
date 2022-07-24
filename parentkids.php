@@ -80,7 +80,7 @@
       <div class="card w-75 mx-auto">
 
             <div class="card-title">
-                <h3 class="htext mt-3 displaykidsheader text-decoration-underline">Kids registered by <?php echo $_SESSION['fname']?> <?php echo $_SESSION['lname']?></h3>
+                <h3 class="htext mt-3 displaykidsheader text-decoration-underline">Kid(s) registered by <?php echo $_SESSION['fname']?> <?php echo $_SESSION['lname']?></h3>
                 
             </div>
 
@@ -125,7 +125,7 @@
 
         <div style="width:250px; float:left; margin:15px;" class="displaykidstext">
 
-         <div class="card">
+         <div class="card shadow">
 
         <div class="card-body">
 

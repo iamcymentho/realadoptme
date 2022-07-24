@@ -125,7 +125,7 @@
 
         <div style="width:250px; float:left; margin:15px;" class="displaykidstext">
 
-         <div class="card">
+         <div class="card shadow">
 
         <div class="card-body">
 
@@ -210,6 +210,27 @@
       <!-- container ends here -->
       </div>
       </section>
+
+      <script src="">
+
+        $fosterkids = $value['fosterkid_id'];
+
+        $(document).ready(function(){
+
+        <?php
+      
+       if ($value['requeststatus'] == "completed") {
+
+            
+      
+      ?>
+
+        $fosterkids.hide();
+
+      <?php } ?>
+        });
+
+      </script>
 
       <!-- jquery script file -->
 <script type="text/javascript" src="jquery.min.js"></script>

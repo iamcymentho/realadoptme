@@ -227,7 +227,7 @@ include_once("slider.php");
 
     <div class="row">
         <div class="col-12 mt-2 m-2 p-2 ">
-            <h3 class="mynumberheading text-muted text-center text-decoration-underline shadow p-2 bg-light ">
+            <h3 class="mynumberheading text-muted text-center text-decoration-underline  p-2 bg-light ">
                 TESTIMONIALS</h3>
 
         </div>
@@ -261,8 +261,7 @@ include_once("slider.php");
 
                 <div class="card-body">
                     <i class="fa-solid fa-quote-left fa-2x"></i>
-                    <p class="p-2 mytext">Your brand is what other people say about you when
-                        you're not in the room.</p>
+                    <p class="p-2 mytext">I found this system to be very user-friendly and efficient.</p>
                     <span class=" myleftquote"> <i class="fa-solid fa-quote-right fa-2x"></i></span>
 
                 </div>
@@ -280,8 +279,7 @@ include_once("slider.php");
                 <div class="card-body">
                     <i class="fa-solid fa-quote-left fa-2x"></i>
 
-                    <p class="p-2 mytext">Your brand is what other people say about you when
-                        you're not in the room.</p>
+         <p class="p-2 mytext">We are very excited about using AdoptMe.Team as a foster parent</p>
 
                     <span class=" myleftquote"> <i class="fa-solid fa-quote-right fa-2x"></i></span>
 
