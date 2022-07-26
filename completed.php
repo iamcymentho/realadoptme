@@ -103,6 +103,7 @@
 
                         foreach($output as $key => $value){
                             $request_id = $value['request_id'];
+                            $fosterkid_id = $value['fosterkid_id'];
 
                         ?>
 
@@ -133,7 +134,9 @@
 
                             <td>
                              
-                            <a href="" class="btn btn-success text-white disabled" id="btnaccept" >Completed</a>
+                        <a href="" class="btn btn-success text-white disabled" id="btnaccept" >Completed</a>
+
+                         <a href="adopted.php?fosterkidid=<?php echo $fosterkid_id?>&firstname=<?php echo $value['fosterkid_firstname']; ?>&lastname=<?php echo $value['fosterkid_lastname']; ?>&adoptstatus=<?php echo $value['adoptionstatus']; ?>" class="btn btn-success" id="btnadopt" name="btnadopt">Adopted</a>
 
                             
             

@@ -103,6 +103,7 @@
 
                         foreach($output as $key => $value){
                             $request_id = $value['request_id'];
+                         
 
                         ?>
 
@@ -135,7 +136,7 @@
                              
                             <a href="" class="btn btn-warning text-white disabled" id="btnaccept" >Approved</a>
 
-                            <a href="completing.php?requestid=<?php echo $request_id?>&firstname=<?php echo $value['firstname']; ?>&lastname=<?php echo $value['lastname']; ?>&reqstatus=<?php echo $value['requeststatus']; ?>" class="btn btn-success" id="btncomplete">Completed</a>
+                            <a href="completing.php?requestid=<?php echo $request_id?>&firstname=<?php echo $value['firstname']; ?>&lastname=<?php echo $value['lastname']; ?>&reqstatus=<?php echo $value['requeststatus']; ?>" class="btn btn-success" id="btncomplete" name="btncomplete">Completed</a>
             
                     
                      </td>
@@ -181,7 +182,7 @@
 
     </div>
     <!-- /.row -->
-
+    
   </div>
   <!-- /.container -->
 

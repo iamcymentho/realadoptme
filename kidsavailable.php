@@ -93,7 +93,7 @@
     </div>
 
 
-    <div class="row mt-3">
+    <div class="row mt-3" id="checkout">
 
     <div class="col shift">
 
@@ -114,14 +114,24 @@
 
         
 
-        if (count($fosterkid) > 0) {
+        if (count($fosterkid) > 0 ) {
             
             # loop thru the array using foreach
             foreach ($fosterkid as $key => $value) {
-                # code...
+                     $adoptionstatus = $value['adoptionstatus'];
+
+                     // var_dump($adoptionstatus);
             
         
         ?>
+
+       <?php
+
+       if ($adoptionstatus != 'adopted') {
+
+          
+
+       ?>
 
         <div style="width:250px; float:left; margin:15px;" class="displaykidstext">
 
@@ -151,9 +161,11 @@
          
          ?> </p> 
 
-         <p class="mb-0">Hobbies: 
+         <p class="mb-0">Hobbies: <?php echo $value['hobbies']; ?></p>
+
+         <p class="mb-0">Adoption Status: 
             
-         <?php echo $value['hobbies']; ?> 
+         <?php echo "<a  class='btn btn-dark'>$adoptionstatus</a>"; ?> 
 
          <form method="post" action="insertrequests.php">
 
@@ -170,7 +182,7 @@
 
                 <input type="hidden" name="mypicture" value="<?php echo $value['picture']; ?>">
 
-                <input type="submit" name="btnrequest" value="Make a request" class="btn btn-outline-primary mt-2">
+                <input type="submit" id="btnrequest" name="btnrequest" value="Make a request" class="btn btn-outline-primary mt-4">
 
                 </form>
         
@@ -188,7 +200,7 @@
 
             </div>
 
-           
+   <?php } ?>
 
 
         <?php 
@@ -197,40 +209,20 @@
     }
         ?>
 
-      
 
       <!-- col ends here -->
       </div>
 
       <!-- row ends here -->
       </div>
+      
 
-
-
+     
       <!-- container ends here -->
       </div>
       </section>
 
-      <script src="">
 
-        $fosterkids = $value['fosterkid_id'];
-
-        $(document).ready(function(){
-
-        <?php
-      
-       if ($value['requeststatus'] == "completed") {
-
-            
-      
-      ?>
-
-        $fosterkids.hide();
-
-      <?php } ?>
-        });
-
-      </script>
 
       <!-- jquery script file -->
 <script type="text/javascript" src="jquery.min.js"></script>
@@ -240,6 +232,21 @@
     <!-- Bootstrap java script goes here-->
 
     <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+
+
+    <script type="text/javascript">
+        
+        $(document).ready(function(){
+
+            var content = $value['adoptionstatus'];
+
+            if (content == 'adopted') {
+
+                $("#btnrequest").prop("disabled", true);
+            }
+
+        });
+    </script>
 
 
    <footer class="bg-dark text-white p-1 mt-3 shadow">

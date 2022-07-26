@@ -12,7 +12,7 @@
     
  
     <div class="row">
-      <div class="col-lg-10 mb-4">
+      <div class="col-lg-12 mb-4">
 
       <div class="card">
         <div class="card-header bg-secondary ">
@@ -38,6 +38,7 @@
                 <th>DNA Report</th>
                 <th>Medical Challenges</th>
                  <th>Date 0f registration</th>
+                 <th>Adoption Status</th>
 
                 </tr>
             </thead>
@@ -94,6 +95,24 @@
                             <td><?php echo $value['dna_report']?></td>
                             <td><?php echo $value['medical_challenge']?></td>
                              <td><?php echo date('l jS F, Y', strtotime($value['dateof_submission']))?></td>
+                             <td>
+
+                                <?php
+
+                                    $available = $value['adoptionstatus'];
+                                if ($available == 'available') {
+                                    
+            echo "<button class='btn btn-secondary' disabled> $available </button>";
+                                }else{
+
+          echo "<button class='btn btn-success' disabled> $available </button>";                 
+                                }
+
+                                ?>
+                                
+                                
+                                    
+                                </td>
 
 
                             <!-- <td><?php 

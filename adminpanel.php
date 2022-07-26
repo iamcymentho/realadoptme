@@ -28,6 +28,10 @@ $approved = $obj->totalrequestsapproved();
 
 $totalusers = $output + $adoptiveparent;
 
+$kidsavailable = $obj->totalavailablefosterkid();
+
+$totaladoption = $obj->totaladoption();
+
 
 // $users = $obj->totalusers();
 
@@ -172,7 +176,7 @@ $totalusers = $output + $adoptiveparent;
             
             
                 <div class="col-md-3 mt-4">
-                    <div class="card bg-success mt-3 shadow">
+                    <div class="card bg-secondary mt-3 shadow">
                         <div class="card-title">
                             <p class="text-white mt-4 myadmintext m-3"><i class="fa-solid fa-envelope-circle-check fa-2x"></i> Total requests granted</p>
                         </div>
@@ -187,6 +191,47 @@ $totalusers = $output + $adoptiveparent;
                     </div>
                 </div>
                 <!--  second row ends here -->
+            </div>
+
+
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-3 mt-4">
+                    <div class="card bg-dark mt-3 shadow">
+                        <div class="card-title">
+                            <p class="text-white mt-4 myadmintext m-3"><i class="fa-solid fa-children fa-2x"></i> Total kids available</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text ">
+                        <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $kidsavailable ?></h1>
+                            </div>
+                            <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - kids available
+                                    )</small></a>
+                        </div>
+                        <!-- card ends here -->
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 mt-4">
+                    <div class="card bg-success mt-3 shadow">
+                        <div class="card-title">
+                            <p class="text-white mt-4 myadmintext m-3"><i class="fa-solid fa-ribbon fa-2x"></i></i> Total adoption</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text ">
+                    <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $totaladoption?></h1>
+                            </div>
+                            <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - request granted
+                                    )</small></a>
+                        </div>
+                        <!-- card ends here -->
+                    </div>
+                </div>
+
+
+                <!-- third row ends here -->
             </div>
             <!-- container ends here -->
             </div>

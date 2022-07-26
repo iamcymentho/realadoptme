@@ -873,6 +873,34 @@ class User{
 
     //end delete request method
 
+
+    //begin delete request method 
+
+    public function deletefosterkid($id){
+
+        //prepare the statement
+        $statement = $this->dbconn->prepare("DELETE FROM fosterkid WHERE fosterkid_id=?");
+
+        //bind param
+        $statement->bind_param("i", $id);
+
+        //execute
+        $statement->execute();
+
+        //check if  record was deleted
+        if ($statement->affected_rows == 1) {
+
+           return true;
+
+        }else {
+            # redirect to listclubs
+            return false;
+        }
+    }
+
+    //end delete request method
+
+
     //begin total birth parent method
     public function totalbirthparent(){
 
@@ -940,6 +968,51 @@ class User{
 
     }
     //end total foster kid method
+
+    //begin totalfoster kids available method
+
+    public function totalavailablefosterkid(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT fosterkid_id FROM fosterkid WHERE adoptionstatus ='available' ");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total foster kids available method
+
+
+    //begin total adoption method
+
+    public function totaladoption(){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT fosterkid_id FROM fosterkid WHERE adoptionstatus ='adopted' ");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total adoption method
 
 
     //begin total request method
@@ -1091,6 +1164,43 @@ class User{
 
 
     //update request status approve ends 
+
+
+
+    //update adoption status approve starts here
+
+    public function updateadoptionstatus($fosterkid_id){
+
+
+
+        //prepare statement
+        $statement = $this->dbconn->prepare("UPDATE fosterkid SET adoptionstatus=? WHERE fosterkid_id=?");
+
+        //bind parameters
+        $adoptionstatus = "adopted";
+        $statement->bind_param("si", $adoptionstatus, $fosterkid_id);
+
+        //execute statement
+        $statement->execute();
+
+        if ($statement->affected_rows == 1) {
+
+           # redirect to listclubs
+            $msg = "Adoption successfull!";
+            header("Location: listfosterkid.php?m=$msg");
+            exit;
+        }else {
+
+            # redirect to listclubs
+            $msg = "Oops! Couldnt update adoption status";
+            header("Location: completed.php?err=$msg");
+            exit;
+        }
+
+    }
+
+
+    //update adoption status approve ends 
     
 
 
@@ -1239,6 +1349,7 @@ class User{
         #get result
         $result = $statement->get_result();
 
+
         //fetch records
         $records = array();
 
@@ -1334,7 +1445,7 @@ class User{
         if ($statement->affected_rows == 1) {
 
            # redirect to listclubs
-            $msg = "Adoption process fullt completed !";
+            $msg = "Adoption process fully completed !";
             header("Location: completed.php?m=$msg");
             exit;
         }else {
