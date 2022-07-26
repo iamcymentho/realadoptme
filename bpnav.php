@@ -12,6 +12,8 @@
     <div class="card">
         <div class="card-title mynumberheading">
 
+		
+
         <h5 style="padding: 20px; text-align: center;">Welcome, <?php echo $_SESSION['fname']. " ". $_SESSION['lname']; ?></h5><i class="fa-solid fa-hand-heart"></i>
 
         </div>

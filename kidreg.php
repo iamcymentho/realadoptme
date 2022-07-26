@@ -99,16 +99,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($output == true && $output1 == true) {
 
-        $msg = "<div class='alert alert-success'>Registration Successful</div>";
-        echo "$msg";
+        // $msg = "<div class='alert alert-success'>Registration Successful</div>";
+        // echo "$msg";
 
         //redirect to dashboard page
-        header("Location: trial.php");
-        exit();
+            $msg = " Registration successfull";
+             header("Location: trial.php?m=$msg");
+              exit();
         }else{
 
-            $msg = "<div class='alert alert-danger'>Oops! something happened. Try again later</div>";
-        //  $errors[] = "Oops! sonthing happened. Try again later.";
+        //     $msg = "<div class='alert alert-danger'>Oops! something happened. Try again later</div>";
+        // //  $errors[] = "Oops! sonthing happened. Try again later.";
+
+                  //redirect to dashboard page
+            $err = " Oops! something happened. Try again later";
+             header("Location: trial.php?m=$err");
+              exit();
          }
     
 

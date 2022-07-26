@@ -77,7 +77,7 @@
 
       <div class="col-md-8">
 
-      <div class="card">
+      <div class="card shadow">
 
             <div class="card-title">
                 <h3 class="htext mt-3 displaykidsheader text-decoration-underline">Foster kids available for adoption</h3>

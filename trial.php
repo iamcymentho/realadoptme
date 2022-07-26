@@ -1,9 +1,5 @@
  
 
-
-
-
-
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -15,66 +11,7 @@
         rel="stylesheet">
 
 
-        <!-- <section>
-
-            <!-- <div class="container-fluid">
-
-            <nav class="navbar navbar-dark bg-dark justify-content-end">
-
-                <ul class="nav ">
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                
-                </ul>
-
-  <!-- Navbar content -->
-        <!-- </nav> -->
-
-
-            <!-- container fluid ends here -->
-            <!-- </div> --> 
-
-
-        <!-- <nav class="navbar navbar-dark bg-dark shadow">
-
-      <div class="container-fluid">
-       <span class="navbar-brand mb-0 h1 text-white">ADOPTME</span>
-
-
-
-        <ul class="nav ">
-
-                <li>
-
-                <button type="button" class="btn btn-light">
-            Notifications <span class="badge bg-danger">4</span>
-             </button>
-             
-                </li>
-
-                <li class="nav-item ms-5">
-                    <a class="nav-link btn btn-light" href="">Logout</a>
-                </li>
-
-                
-                
-                </ul>
-
-       </div>
-
-
        
-       </nav> -->
-
-        <!-- </section> --> 
 
         <style>
             .trialfooter{
@@ -86,7 +23,7 @@
                  width:275px;
                  border:2px solid white;
                 
-              
+                 
                  
             }
 
@@ -106,10 +43,11 @@
 <div class="row">
     <div class="col-md-4 mt-3">
 
+    <a class="btn btn-secondary htext">Logged in as birth parent</a>
+
         <div class="card bg-dark shadow mt-3">
             <div class="card-title">
-                <!-- <h1 class="companytextcolor mynumberheading m-3">Adopt Me</h1> -->
-
+                
                 <?php include_once("bpnav.php"); ?>
             </div>
 
@@ -118,7 +56,7 @@
             <div class="row">
 
               
-           <img src="fosterphotos/pictures/<?php echo $_SESSION['profilepicture']?>" alt="myprofilepp" class=" img-fluid w-250 mx-auto shadow mb-3 p-2 bg-dark rounded myimage">
+           <img src="fosterphotos/pictures/<?php echo $_SESSION['profilepicture']?>" alt="myprofilepp" class=" img-fluid w-250 mx-auto shadow mb-3 p-2 bg-dark rounded-3 myimage">
           
     
           
@@ -148,168 +86,7 @@
     </div>
 
       <div class="col-md-7 mt-3 myform">
-        <div class="card">
-
-        <div class="card-title">
-            <h2 class="htext birthparentcardtitle mt-3">Register kid</h2>
-
-
-            <?php
-
-                    if (!empty($errors)) {
-                        echo "<div class='alert alert-danger'>";
-
-                          foreach ($errors as $key => $value) {
-                              echo "<p class='m-0'>$value</p>";
-                          }
-                          echo "</div>";
-                    }
-
-                        
-
-                    ?>
-        </div>
-
-      <!-- <div class="col-md-12 mt-4">
-     <div class="card  shadow m-auto birthparent ">
-
-        <div class="card-title ">
-            <h3 class="mb-0 htext mt-3 birthparentcardtitle">Creat account as foster kid</h3>
-            <small class="birthparentcardsubtitle">It's quick and easy</small>
-            <hr>
-        </div> -->
-
-      <form action="" method="POST">
-
-      <div class="row m-1 mt-2 mb-3">
-
-      <div class="col-md-6">
-
-        <input type="text" class="form-control " name="fkfirstname" placeholder="First name" aria-label="First name"
-                id="fkfirstname" >
-      </div>
-
-      <div class="col-md-6">
-
-        <input type="text" class="form-control " name="fklastname" placeholder="Last name" aria-label="Last name"
-                id="fklastname">
-      </div>
-
-      </div>
-
-
-      <div class="row m-1 mb-3">
-
-      <div class="col-md-6">
-
-        <input type="email" class="form-control " name="fkemail" placeholder="Email address" aria-label="email address"
-                id="fkemailaddress">
-      </div>
-
-      <div class="col-md-6">
-
-        <input type="date" class="form-control " name="fkdateofbirth" aria-label="date" id="fkdateofbirth">
-            <small class=" companytextcolor">Date of birth</small>
-      </div>
-
-      </div>
-
-
-      <div class="row m-1 mb-3">
-
-      <div class="col-md-6">
-
-        <select name="fkgender" id="fkgender" class="form-select" aria-label="gender">
-                <option value="">Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-    
-            </select>
-      </div>
-
-      <div class="col-md-6">
-
-        <input type="text" class="form-control " name="fkhobbies" placeholder="enter hobbies" aria-label="hobbies"
-                id="fkhobbies">
-      </div>
-
-      </div>
-
-
-      <div class="row m-1 mb-3">
-
-      <div class="col-md-6">
-
-        <input type="file" class="form-control " name="fkpicture" aria-label="picture" id="fkpicture">
-            <small class=" companytextcolor">Upload a picture</small>
-      </div>
-
-      <div class="col-md-6">
-
-        <input type="text" class="form-control " name="fkbloodgroup" placeholder="Blood group" aria-label="blood group"
-                id="fkbloodgroup">
-      </div>
-
-      </div>
-
-
-
-      <div class="row m-1 mb-3">
-
-      <div class="col-md-6">
-
-        <input type="file" class="form-control " name="fkdnareport" aria-label="dna report" id="fkdnareport">
-            <small class=" companytextcolor">Upload DNA report</small>
-      </div>
-
-      <div class="col-md-6">
-
-        <input type="text" class="form-control " name="fkallergies" placeholder="state allergies" aria-label="allergies"
-                id="fkallergies">
-      </div>
-
-      </div>
-
-
-      <div class="row m-1 mb-3">
-
-      <div class="col">
-
-        <textarea name="fkmedicalchallenges" id="fkmedicalchallenges" cols="30" rows="5" class="form-control"
-            placeholder="State other medical challenges"></textarea>
-      </div>
-
-      
-
-      </div>
-
-
-
-      <div class="row">
-        <div class="col-md-8 mt-4 myagreement ">
-            <input type="checkbox" name="fkcheckbox" id="fkcheckbox" class="form-check-input">
-            <small class="text-muted">By clicking register, you agree to our Terms, Data Policy and Cookie Policy. You may
-                receive SMS notifications from us
-                and can opt out at any time.</small>
-        </div>
-    
-        <!-- row ends here -->
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12 mt-4 mb-3 birthmodal">
-            <input type="submit" name="btnfosterkid" class=" btn text-white btn-primary w-50 " id="btnfosterkid"
-                value="Register" disabled>
-            
-        </div>
-    </div>
-      
-      </form>
-
-
-<!-- card ends here -->
-      </div>
+       
       </div>
 
 
@@ -412,30 +189,10 @@
                              echo "$msg";
                             }
                             
+                           if (!empty($err)) {
 
-
-
-                             #check if data medical  successful
-                            // if ($datamed == 1) {
-                            //     $msg = "<div class='alert alert-success'>Details was successfully updated</div>";
-
-                            //     //redirect
-
-                            //     // header("Location: listclubs.php?m=$msg");
-                                
-                            // }elseif ($datamed == 0) {
-                            //     $msg = "<div class='alert alert-info'>No changes was made</div>";
-
-                            //     //redirect
-                                
-                            //     // header("Location: listclubs.php?m=$msg");
-                            // }else{
-
-                            //     $errors[] = "Oops! Could not update details. ".$datamed;
-                            // } 
-
-                            // echo $msg;
-                            
+                             echo "$err";
+                            }  
                             
                 }
                     

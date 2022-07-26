@@ -328,9 +328,7 @@ class User{
             if ($statement->affected_rows == 1){
 
 						return $this->dbconn->insert_id;
-                        $msg = " Registration successfull";
-                         header("Location: trial.php?m=$msg");
-                    exit();
+                    
 				}else{
 
 					return false;
