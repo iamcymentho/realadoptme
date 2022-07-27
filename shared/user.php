@@ -1423,6 +1423,36 @@ class User{
         return $records;
 
       }
+      //fetch foster parents requests start here 
+
+
+      function fosterparentrequest($fosterparent_id){
+
+        $statement = $this->dbconn->prepare("SELECT * FROM request LEFT JOIN fosterkid ON fosterkid.fosterkid_id = request.fosterkid_id WHERE fosterparent_id=? ORDER BY requestdate DESC");
+
+        //bibd parameters
+        $statement->bind_param("i", $fosterparent_id);
+        
+        #execute
+        $statement->execute();
+
+        //get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+
+                $records[] = $row;
+              }
+          
+        }
+
+        return $records;
+
+      }
       //fetch birth parent registered kids ends here 
 
 
@@ -1456,6 +1486,29 @@ class User{
     }
 
     //update request status completed ends here
+
+
+    //begin total foster parent request method
+
+    public function totalfosterrequests($fosterparent_id){
+
+      //prepare statement
+      $statement = $this->dbconn->prepare("SELECT request_id FROM request WHERE fosterparent_id=?");
+
+      //bind param
+        $statement->bind_param("i", $fosterparent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total request method
 
     
    #begin logout function 

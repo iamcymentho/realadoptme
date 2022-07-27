@@ -296,6 +296,12 @@ top: 70px;
             font-size: 20px;
        }
 
+       .hdtext{
+        font-family: 'Bebas Neue', cursive;
+            word-spacing: 5px;
+            letter-spacing: 2px;
+       }
+
 
 
             /* contact us page styling starts here */

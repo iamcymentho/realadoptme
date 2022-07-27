@@ -233,7 +233,7 @@
 
                 <a href="kidsavailable.php" class="btn btn-light" id="btnregister">View kids available</a>
 
-                <button class="btn btn-light mt-3" id="btnregister">Upload profile picture</button>
+                <a href="fosterparentrequest.php" class="btn btn-light mt-3" id="btnrequest">My request</a>
 
                 </div>
 
