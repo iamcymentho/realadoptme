@@ -1,4 +1,3 @@
- 
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
@@ -10,9 +9,6 @@
         href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat&family=EB+Garamond:ital@1&family=Economica&family=Roboto+Flex:opsz,wght@8..144,300&family=Roboto:wght@300&display=swap"
         rel="stylesheet">
 
-
-       
-
         <style>
             .trialfooter{
                 margin-left: 600px;
@@ -21,9 +17,7 @@
             .w-250{
                 height: 230px;
                  width:275px;
-                 border:2px solid white;
-                
-                 
+                 border:2px solid white;   
                  
             }
 
@@ -57,12 +51,6 @@
 
               
            <img src="fosterphotos/pictures/<?php echo $_SESSION['profilepicture']?>" alt="myprofilepp" class=" img-fluid w-250 mx-auto shadow mb-3 p-2 bg-dark rounded-3 myimage">
-          
-    
-          
-
-    <!-- <img src="images/profilepicture.png" alt="myprofilepp" class=" rounded-3 img-fluid w-75 mx-auto shadow mb-3"> -->
-
 
     </div>
 
@@ -72,8 +60,6 @@
                <a href="kidreg.php" class="btn btn-light" id="btnregister">Register kid</a>
 
                 <a href="parentkids.php" class="btn btn-light mt-3" id="btnregister">View Registered kids</a>
-
-                <!-- <button class="btn btn-light" id="btnregister">Register Kid</button> -->
 
                 </div>
 
@@ -389,10 +375,7 @@
      }else {
         echo "<option value='$bloodgroupid'>$bloodgroupname</option>";
      }
-                            
-     
-                
-               
+                                    
                 }
                 
                 ?> 
@@ -403,8 +386,6 @@
 
             <!-- row ends here -->
             </div>  
-
-
 
         <div class="row ">
 
