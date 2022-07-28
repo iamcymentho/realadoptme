@@ -1,4 +1,4 @@
- <header >
+ <header class="animate__animated animate__bounce animate__slower animate__delay-3s" >
      <!--Header starts here-->
 
     <div id="carouselExampleIndicators" class="carousel slide shadow homecarousel " data-bs-ride="carousel">

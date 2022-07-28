@@ -11,7 +11,7 @@ include_once("slider.php");
 
      <div class="col-md-4">
 
-    <div class="card myvision shadow text-white text-center mypatvision ">
+<div class="card myvision shadow text-white text-center mypatvision animate__animated animate__pulse  animate__slower animate__delay-5s ">
     
         <img src="images/adoptionedit.jpg" alt="adoption" height="200px">
     
@@ -63,7 +63,7 @@ include_once("slider.php");
     
     <div class="col-md-4">
     
-        <div class="card shadow">
+        <div class="card shadow animate__animated animate__pulse  animate__slower animate__delay-5s">
     
             <div class="card-title" style="background-color: rgb(0, 102, 0);">
     
@@ -342,14 +342,14 @@ include_once("slider.php");
 
     <div class="row p-1">
         <div class="col-md-4 mt-3 ">
-            <h3 class="legalcontent p-2 myheading text-muted ">Legally established agency</h3>
+            <h3 class="legalcontent p-2 myheading text-muted animate__animated  animate__slower animate__delay animate__slideInDown">Legally established agency</h3>
             <p class="mytext mt-3 p-1">Our grand plan is that this will be the ideal place/community
                 for parents looking to put up their babies for adoption with reasons
                 best known to them and foster parents looking to be guardians. </p>
         </div>
 
         <div class="col-md-8">
-            <img src="images/addedhome1.jpeg" alt="nappy family" class="img-fluid legalpicture shadow mt-4 rounded-3">
+            <img src="images/addedhome1.jpeg" alt="nappy family" class="img-fluid legalpicture shadow mt-4 rounded-3 animate__animated animate__slideInRight animate__slower animate__delay">
         </div>
         <!-- row ends here -->
     </div>
@@ -365,13 +365,13 @@ include_once("slider.php");
 
         <div class="col-md-8">
 
-            <img src="images/addedhome.jpeg" alt="nappy family" class="img-fluid legalpicture1 shadow mt-4 rounded-3">
+            <img src="images/addedhome.jpeg" alt="nappy family" class="img-fluid legalpicture1 shadow mt-4 rounded-3  animate__animated animate__slower animate__delay animate__slideInLeft" >
         </div>
 
 
 
         <div class="col-md-4 mt-3 legalsection1 ">
-            <h3 class="legalcontent1 p-2 myheading text-muted ">Seamlessly connecting kids with happy families</h3>
+            <h3 class="legalcontent1 p-2 myheading text-muted animate__animated  animate__slower animate__delay animate__slideInDown ">Seamlessly connecting kids with happy families</h3>
             <p class="mytext mt-3 p-1">Our grand plan is that this will be the ideal place/community
                 for parents looking to put up their babies for adoption with reasons
                 best known to them and foster parents looking to be guardians. </p>

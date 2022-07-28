@@ -41,6 +41,10 @@ ob_start();
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
+
+    <!-- css animate -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
       <!-- font awesome -->
     
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
@@ -84,7 +88,7 @@ ob_start();
 
         <!--NavBar starts here-->
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><span
+        <a class="navbar-brand animate__animated animate__swing  animate__slower animate__infinite" href="index.php"><span
                     style="color: rgb(182, 62, 162); font-size: 30px;">AdoptMe</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

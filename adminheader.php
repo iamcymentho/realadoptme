@@ -129,10 +129,6 @@ function sanitizeInput($data){
                         <a class="nav-link" href="listrequests.php">Totalrequest</a>
                     </li>
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="admintotaladoption.php">Totaladoption</a>
-                    </li> -->
-
                     <li class="nav-item">
                         <a class="nav-link" href="adminlogout.php">Logout</a>
                     </li>
