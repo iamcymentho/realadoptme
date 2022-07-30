@@ -106,16 +106,23 @@ include_once("slider.php");
 
 
 
-    <section class="section2 text-center text-light mt-3 shadow myworld">
+    <section class="section2 text-center text-light mt-3 fact shadow myworld ">
     
         <!--Second section starts here-->
         <div class="row">
             <div class="col-md-12">
     
-                <div class="mt-3 shadow  ">
+                <div class="mt-3 shadow">
                     <div class="overlay1">
-                        <p class=" myproof  mynumberheading shadow rounded-3">5,450+ foster kids have been listed on AdoptMe
-                            , now happy with loving families aound the globe.</p>
+
+                        <p class=" myproof  mynumberheading shadow rounded-3" data-wow-delay="0.1s">
+                           
+                             <span data-toggle="counter-up">5,450</span> foster kids have been listed on AdoptMe
+                            , now happy with loving families aound the globe.
+                        
+                        </p>
+
+                           
     
                     </div>
                 </div>
@@ -380,6 +387,8 @@ include_once("slider.php");
     </div>
     <!-- section 7 ends here -->
 </section>
+
+
 
 <?php
 
