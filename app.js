@@ -267,6 +267,7 @@ $(document).ready(function(){
 
     });
 
+
 });
 
 
@@ -287,3 +288,6 @@ setInterval(() => {
 
    
 }, 10000);
+
+
+ 

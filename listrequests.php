@@ -1,5 +1,7 @@
 <?php include_once("adminheader.php");?>
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
 
 <!-- Page Content -->
   <div class="container">
@@ -72,8 +74,8 @@
                       <div class="card-text"> 
 
  
-        <table class="table table-hover table-bordered table-striped">
-            <thead class="">
+        <table class="table table-hover table-bordered table-striped table-bordered" id="mytable">
+            <thead class="mt-3">
 
             <tr class="myadmintext">
                 <th>#</th>
@@ -195,6 +197,18 @@
 
   <!-- jquery script file -->
     <script type="text/javascript" src="jquery.min.js"></script>
+
+    <!-- <script src="jquery.min.js"></script> -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+  
+   <script>
+        $(document).ready( function(){
+          
+    $('#mytable').DataTable();
+
+
+});
+    </script>
 
        <!-- linking to push         -->
     <script src="mypush/push.min.js"></script>
