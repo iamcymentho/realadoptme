@@ -19,6 +19,8 @@
 
 <link rel="stylesheet" type="text/css" href="style.css">
 
+
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -220,6 +222,8 @@
      
       <!-- container ends here -->
       </div>
+
+     
       </section>
 
 
@@ -227,26 +231,12 @@
       <!-- jquery script file -->
 <script type="text/javascript" src="jquery.min.js"></script>
 
+
 <!-- external script  goes here -->
 <script type="text/javascript" src="app.js"></script>
     <!-- Bootstrap java script goes here-->
 
     <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
-
-
-    <script type="text/javascript">
-        
-        $(document).ready(function(){
-
-            var content = $value['adoptionstatus'];
-
-            if (content == 'adopted') {
-
-                $("#btnrequest").prop("disabled", true);
-            }
-
-        });
-    </script>
 
 
    <footer class="bg-dark text-white p-1 mt-3 shadow">
