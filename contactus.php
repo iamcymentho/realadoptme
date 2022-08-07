@@ -218,13 +218,13 @@ include_once("frontdisplay.php");
     </div>
 
     <div class="col-md-4 mt-4 text-muted">
-        <i class="fa-solid fa-location-dot fa-2x" style="color:green ; margin-left: 25px;"></i>
+       <a href="https://www.google.com/maps/place/Lekki+Phase+1+106104,+Lekki/@6.4502409,3.4535066,14z/data=!3m1!4b1!4m5!3m4!1s0x103bf452da3bd44b:0x47331fb41adc9d28!8m2!3d6.4478093!4d3.4723495"><i class="fa-solid fa-location-dot fa-2x" style="color:green ; margin-left: 25px;"></i> </a> 
         <h4 class="mt-3 htext">Headquaters</h4>
         <h5 class="mt-3 htext">Lekki, Lagos, Nigeria</h5>
     </div>
 
     <div class="col-md-4 mt-4 text-muted">
-        <i class="fa-solid fa-location-dot fa-2x" style="color:green ; margin-left: 25px;"></i>
+       <a href="https://www.google.com/maps/place/Allen+Ave,+Allen+101233,+Ikeja/@6.6017345,3.3498324,17z/data=!3m1!4b1!4m5!3m4!1s0x103b9230fc4fc853:0xd8babb191dac2f6b!8m2!3d6.6017292!4d3.3520211"> <i class="fa-solid fa-location-dot fa-2x" style="color:green ; margin-left: 25px;"></i> </a>
         <h4 class="mt-3 htext">Branch</h4>
         <h5 class="mt-3 htext">Alausa,Ikeja, Lagos, Nigeria</h5>
     </div>
@@ -236,7 +236,7 @@ include_once("frontdisplay.php");
 <div class="row mt-5 contactsection">
     <!-- second row starts here -->
     <div class="col-md-4 mt-4 text-muted">
-        <i class="fa-brands fa-facebook fa-2x" style="color:green ; margin-left: 25px;"></i>
+     <a href="https://www.facebook.com/">   <i class="fa-brands fa-facebook fa-2x" style="color:green ; margin-left: 25px;"></i></a>
         <h4 class="mt-3 htext">on facebook</h4>
         <h5 class="mt-3 htext">The adopt me foundation.</h5>
 
@@ -244,7 +244,7 @@ include_once("frontdisplay.php");
     </div>
 
     <div class="col-md-4 mt-4 text-muted">
-        <i class="fa-brands fa-twitter-square fa-2x" style="color:green ; margin-left: 25px;"></i>
+       <a href="https://twitter.com/"> <i class="fa-brands fa-twitter-square fa-2x" style="color:green ; margin-left: 25px;"></i></a>
         <h4 class="mt-3 htext">on twitter</h4>
         <h5 class="mt-3 htext">@adoptme</h5>
         <h5 class="mt-3 htext">@adoptmecommunity</h5>

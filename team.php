@@ -135,7 +135,7 @@ include_once("frontheader.php");
                                     intense focus and unrelenting hardwork that we work towards achieving our main objeectives , which is making sure every
                                     kids grows up in a loving family</p>
 
-                                    <a href="contactus.html"><button type="button"  class="btn btn-success teamdisplayheader mt-3 fabcybutton" >Contact us now</button></a>
+                                    <a href="contactus.php"><button type="button"  class="btn btn-success teamdisplayheader mt-3 fabcybutton" >Contact us now</button></a>
 
 
                                 </div>

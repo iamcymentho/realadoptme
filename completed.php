@@ -105,10 +105,18 @@
                         foreach($output as $key => $value){
                             $request_id = $value['request_id'];
                             $fosterkid_id = $value['fosterkid_id'];
+                            $requeststatus = $value['requeststatus'];
+                            $adoptionstatus = $value['adoptionstatus'];
 
                         ?>
 
-                        <tr>
+                        <?php
+                        if ($adoptionstatus != 'adopted') {
+                          # code...
+                        
+                        ?>
+
+                          <tr>
                             <td>#</td>
                             <td><?php echo $value['firstname']?></td>
                             <td><?php echo $value['lastname']?></td>
@@ -144,23 +152,11 @@
                     
                      </td>
                             
-
-
-                            <!-- <td><?php 
-                            if (!empty($value['emblem'])) {
-                              # code...
-                            ?>
-                              <img src="clubphotos/<?php //echo $value['emblem']?>" alt="<?php //echo $value['club_name']?> emblem" class="img-fluid">
-                            <?php  } ?></td>
-                            
-                            <td>
-
-                            <a href="editclub.php?clubid=<?php //echo $clubid?>">Edit</a> |  
-                            <a href="deleteclub.php?clubid=<?php //echo $clubid?>&clubname=<?php //echo $value['club_name']; ?>">Delete</a>
-
-                            </td>
-                             -->
                         </tr>
+
+                        <?php } ?>
+
+                        
 
                         <?php }
                         
