@@ -1,5 +1,7 @@
 <?php include_once("adminheader.php");?>
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
 
 <!-- Page Content -->
   <div class="container">
@@ -53,7 +55,7 @@
     
  
     <div class="row">
-      <div class="col-md-10 mb-4">
+      <div class="col-md-12 mb-4">
 
       <div class="card">
         <div class="card-header bg-secondary ">
@@ -64,8 +66,8 @@
                       <div class="card-text"> 
 
  
-        <table class="table table-hover table-bordered table-striped">
-            <thead class="">
+        <table class="table table-hover table-bordered table-striped " id="mytable">
+            <thead class="mt-3">
 
             <tr class="myadmintext">
                 <th>#</th>
@@ -101,13 +103,15 @@
 
                     if (count($output)>0) {
 
+                      $kounter = 0;
+
                         foreach($output as $key => $value){
                             $request_id = $value['request_id'];
 
                         ?>
 
                         <tr>
-                            <td>#</td>
+                             <td><?php echo ++$kounter?></td>
                             <td><?php echo $value['firstname']?></td>
                             <td><?php echo $value['lastname']?></td>
                              <td><?php echo date('l jS F, Y', strtotime($value['dateof_birth']))?></td>
@@ -134,28 +138,9 @@
                             <td>
                              
                             <a href="" class="btn btn-secondary disabled" id="btnaccept" >Pending</a>
-
-                            
-            
                     
                      </td>
                             
-
-
-                            <!-- <td><?php 
-                            if (!empty($value['emblem'])) {
-                              # code...
-                            ?>
-                              <img src="clubphotos/<?php //echo $value['emblem']?>" alt="<?php //echo $value['club_name']?> emblem" class="img-fluid">
-                            <?php  } ?></td>
-                            
-                            <td>
-
-                            <a href="editclub.php?clubid=<?php //echo $clubid?>">Edit</a> |  
-                            <a href="deleteclub.php?clubid=<?php //echo $clubid?>&clubname=<?php //echo $value['club_name']; ?>">Delete</a>
-
-                            </td>
-                             -->
                         </tr>
 
                         <?php }
@@ -187,6 +172,17 @@
 
   <!-- jquery script file -->
     <script type="text/javascript" src="jquery.min.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+  
+   <script>
+        $(document).ready( function(){
+          
+    $('#mytable').DataTable();
+
+
+});
+    </script>
 
     
 

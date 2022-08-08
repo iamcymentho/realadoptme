@@ -158,6 +158,62 @@ class Donate{
         return $result;
         
     }
+
+
+
+    //list donations method begins here
+
+      function listdonation(){
+
+        //prepare statement
+        $statement = $this->conn->prepare("SELECT * FROM donation ORDER BY datepaid DESC" );
+
+        #execute
+        $statement->execute();
+
+        #get result
+        $result = $statement->get_result();
+
+        //fetch records
+        $records = array();
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()){
+
+               $records[] = $row;
+            }
+
+          
+        }
+         return $records;
+
+      }
+      //list donation method ends here
+
+
+
+      //begin total request method
+
+    public function totaldonation(){
+
+      //prepare statement
+      $statement = $this->conn->prepare("SELECT donation_id FROM donation");
+
+      // //bind param
+      //   $statement->bind_param("i", $parent_id);
+
+      //execute statement
+      $statement->execute();
+
+        //store result
+      $statement->store_result();
+
+      //return result
+      return $statement->num_rows;
+
+    }
+    //end total request method
+
    
 }
 

@@ -55,7 +55,7 @@
     
  
     <div class="row">
-      <div class="col-md-10 mb-4">
+      <div class="col-md-12 mb-4">
 
       <div class="card">
         <div class="card-header bg-secondary ">
@@ -103,13 +103,15 @@
 
                     if (count($output)>0) {
 
+                      $kounter = 0;
+
                         foreach($output as $key => $value){
                             $request_id = $value['request_id'];
 
                         ?>
 
                         <tr>
-                            <td>#</td>
+                            <td><?php echo ++$kounter?></td>
                             <td><?php echo $value['firstname']?></td>
                             <td><?php echo $value['lastname']?></td>
                              <td><?php echo date('l jS F, Y', strtotime($value['dateof_birth']))?></td>

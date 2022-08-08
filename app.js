@@ -282,14 +282,14 @@ $("#btndonate").click(function(event){
 
 
       var firstname = $("#firstname").val();
-      var lastname = $("#lasttname").val();
+      var lastname = $("#lastname").val();
       var email = $("#email").val();
       var amount = $("#amount").val();
 
       var donateresult = `
         
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-     <i class="fa-solid fa-triangle-exclamation"></i> Fill in all required entry fields.
+     <i class="fa-solid fa-triangle-exclamation"></i> Please fill in all required entry fields.
      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
      `;

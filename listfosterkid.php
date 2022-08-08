@@ -65,13 +65,15 @@
 
                     if (count($output)>0) {
 
+                      $kounter = 0;
+
                         foreach($output as $key => $value){
                             $fosterkid_id = $value['fosterkid_id'];
 
                         ?>
 
                         <tr>
-                            <td>#</td>
+                             <td><?php echo ++$kounter?></td>
                             <td><?php echo $value['fosterkid_firstname']?></td>
                             <td><?php echo $value['fosterkid_lastname']?></td>
                              <td><?php echo date('l jS F, Y', strtotime($value['dateof_birth']))?></td>

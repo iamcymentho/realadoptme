@@ -58,7 +58,7 @@
 
         .move{
             
-        margin-left:350px;
+        margin-left:280px;
         }
        
         
@@ -130,6 +130,10 @@ function sanitizeInput($data){
 
                     <li class="nav-item">
                         <a class="nav-link" href="listrequests.php">Totalrequest</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="listdonation.php">Donations</a>
                     </li>
 
                     <li class="nav-item">

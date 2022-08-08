@@ -32,12 +32,22 @@ $kidsavailable = $obj->totalavailablefosterkid();
 
 $totaladoption = $obj->totaladoption();
 
-
 // $users = $obj->totalusers();
 
 //     echo "<pre>";
 //     print_r($output);
 //     echo "</pre>";
+
+
+//include donation class
+include_once("shared/donateclass.php");
+
+//create object of user
+$donateobj = new Donate();
+
+//access list donation method
+$totalonation = $donateobj-> totaldonation();
+
 
 ?>
 
@@ -224,6 +234,23 @@ $totaladoption = $obj->totaladoption();
                     <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $totaladoption?></h1>
                             </div>
                             <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - request granted
+                                    )</small></a>
+                        </div>
+                        <!-- card ends here -->
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 mt-4">
+                    <div class="card mt-3 shadow" style="background-color:rgba(0,128,128,0.7)">
+                        <div class="card-title">
+                            <p class="text-white mt-4 myadmintext m-3"><i class="fa-solid fa-credit-card fa-2x"></i></i> Total donation</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text ">
+                    <h1 class="text-white text-decoration-underline subcardnumber"><?php echo $totalonation?></h1>
+                            </div>
+                            <a href="" class="mt-3 text-white myadmintext"><small>View Report ( Usage - total donations
                                     )</small></a>
                         </div>
                         <!-- card ends here -->

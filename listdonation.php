@@ -8,16 +8,16 @@
 
     <!-- Page Heading/Breadcrumbs -->
     <h1 class="mt-4 mb-3">
-      <small class="myheading text-muted text-decoration-underline" >List of requests</small>
+      <small class="myheading text-muted text-decoration-underline" >List of donations</small>
     </h1>
 
-     <a href="pending.php" class="btn btn-secondary mb-3 myadmintext">Pending</a>
+     <!-- <a href="pending.php" class="btn btn-secondary mb-3 myadmintext">Pending</a>
 
     <a href="declined.php" class="btn btn-danger mb-3 myadmintext">Declined</a>
 
     <a href="approved.php" class="btn btn-warning text-white mb-3 myadmintext">Approved</a>
 
-    <a href="completed.php" class="btn btn-success mb-3 myadmintext">Completed</a>
+    <a href="completed.php" class="btn btn-success mb-3 myadmintext">Completed</a> -->
 
     <!-- <a href="javascript:void(0)" class="btn btn-light mb-3 myadmintext"  onclick="start()">Pull</a> -->
 
@@ -67,7 +67,7 @@
 
       <div class="card">
         <div class="card-header bg-secondary ">
-            <h3 class="myadmintext text-white">List of requests</h3>
+            <h3 class="myadmintext text-white">List of donations</h3>
                     </div>
 
                     <div class="card-body">
@@ -81,11 +81,11 @@
                 <th>#</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Date 0f Birth</th>
-                <th>Gender</th>
-                <th>Picture</th>
-                <th>requestdate</th>
-                <th>Status</th>
+                <th>Email</th>
+                <th>Amount</th>
+                <th>Reference</th>
+                <th>Datepaid</th>
+               
 
 
                 </tr>
@@ -97,12 +97,12 @@
                 <?php
                 #include class
 
-                include_once('shared/user.php');
+                include_once('shared/donateclass.php');
 
                 #create club object
-                $userobj = new User();
+                $donateobj = new Donate();
                 
-                $output = $userobj->listrequests();
+                $output = $donateobj->listdonation();
 
                 // echo "<pre>";
                 // print_r($output);
@@ -111,60 +111,27 @@
 
                     if (count($output)>0) {
 
-                      $kounter = 0;
+                         $kounter = 0; 
 
                         foreach($output as $key => $value){
-                            $request_id = $value['request_id'];
-                            $requeststatus = $value['requeststatus'];
+                            $donation_id = $value['donation_id'];
 
-                        ?>
-
-                        <?php
-                        
-                        if ($requeststatus == 'pending' ) {
-                          # code...
-                        
                         ?>
 
                           <tr>
-                             <td><?php echo ++$kounter?></td>
+                            <td><?php echo ++$kounter?></td>
                             <td><?php echo $value['firstname']?></td>
                             <td><?php echo $value['lastname']?></td>
-                             <td><?php echo date('l jS F, Y', strtotime($value['dateof_birth']))?></td>
-                            <td><?php echo $value['gender']?></td>
+                            <td><?php echo $value['email']?></td>
+                            <td><?php echo $value['amount']?></td>
+                            <td><?php echo $value['reference']?></td>
+                             <td><?php echo date('l jS F, Y', strtotime($value['datepaid']))?></td>
+                            
                             
 
-                            <td>
-                              <?php
-                              if (!empty($value['picture'])) {
-                                # code...
-          
-                              ?>
-
-                                <img src="fosterphotos/pictures<?php echo $value['picture']?>" alt="<?php echo $value['firstname']?> picture" class="img-fluid" style="height:100px;">
-                              <?php } ?>   
-
-                              <?php //echo $value['picture']?>
-                            
-                            </td>
-
-
-                            <td><?php echo date(' jS F, Y', strtotime($value['requestdate']))?></td>
-
-                            <td>
-                             
-                            <a href="grantrequest.php?requestid=<?php echo $request_id?>&firstname=<?php echo $value['firstname']; ?>&lastname=<?php echo $value['lastname']; ?>&reqstatus=<?php echo $value['requeststatus']; ?>" class="btn btn-success" id="btnaccept">Accept</a>
-
-                            <a href="deleterequest.php?requestid=<?php echo $request_id?>&firstname=<?php echo $value['firstname']; ?>&lastname=<?php echo $value['lastname']; ?>&reqstatus=<?php echo $value['requeststatus']; ?>" class="btn btn-danger" id="btndecline">Decline</a>
-            
-                    
-                     </td>
+                           
                             
                         </tr>
-
-                        <?php }  ?>
-
-                        
 
                         <?php }
                         
