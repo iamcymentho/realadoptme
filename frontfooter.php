@@ -1,3 +1,47 @@
+
+
+<style>
+    .donationheader{
+
+    font-family: 'Bebas Neue', cursive;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    font-size: 30px;
+
+}
+
+.donationdisplay{
+
+    font-family: 'Bebas Neue', cursive;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    font-size: 10px;
+
+}
+
+.donationtext{
+
+    font-family: 'Bebas Neue', cursive;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    font-size: 20px;
+
+}
+
+.companycolorshow{
+    border: 1px solid rgb(182, 62, 162);
+}
+
+
+.mydonation:hover{
+
+    color:white;
+    background-color:rgba(182, 62, 162, 0.7);
+}
+</style>
+
+<!-- <link rel="stylesheet"  href="css/bootstrap.css"> -->
+
 <footer class="mt-5 bg-white p-3 text-center shadow ">
 
 <div class="row fancyfooter">
@@ -8,6 +52,10 @@
             <li class="mt-3"><a href="#">Professionals</a></li>
             <li class="mt-3"><a href="#">Media</a></li>
         </ul>
+
+         <div class="d-grid gap-2 ">
+    <a href="donate.php" class="btn btn-outline-secondary fancybutton donationtext companycolorshow  mydonation"> Donate Here</a>
+        </div>
     </div>
 
      <div class="col-md-4 mt-4">

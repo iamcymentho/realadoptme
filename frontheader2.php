@@ -71,9 +71,8 @@ ob_start();
 
     /* position: sticky;
     top:5px;
-    z-index: 1; */    
+    z-index: 1; */
 }
-
 
 .donationtext{
 
@@ -83,6 +82,7 @@ ob_start();
     font-size: 20px;
 
 }
+
     
 
 
@@ -140,9 +140,7 @@ ob_start();
                         <a class="nav-link " href="policy.php" tabindex="-1" aria-disabled="true">Policy</a>
                     </li>
 
-                         <li class="nav-item">
-                         <a href="donate.php" class=" nav-link companycolorshow btn ms-3"> Donate</a>
-                    </li>
+                         
                 </ul>
                 <form class="d-flex">
                    

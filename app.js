@@ -268,7 +268,44 @@ $(document).ready(function(){
     });
 
 
+
+    //Donation functionalities
+
+    
+
 });
+
+
+$(document).ready(function(){
+
+$("#btndonate").click(function(event){
+
+
+      var firstname = $("#firstname").val();
+      var lastname = $("#lasttname").val();
+      var email = $("#email").val();
+      var amount = $("#amount").val();
+
+      var donateresult = `
+        
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+     <i class="fa-solid fa-triangle-exclamation"></i> Fill in all required entry fields.
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+     `;
+
+      if (firstname == "" || lastname == "" || email == "" || amount == "") {
+
+         event.preventDefault();
+        $("#donateresult").html(donateresult);
+
+     }
+
+    });
+
+});
+
+
 
 
 setInterval(() => {
