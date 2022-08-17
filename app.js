@@ -315,8 +315,8 @@ setInterval(() => {
 
     // Facts counter
     $('[data-toggle="counter-up"]').counterUp({
-        delay: 10,
-        time: 2000
+        delay: 5,
+        time: 1000
         
     });
 
@@ -324,7 +324,7 @@ setInterval(() => {
 })(jQuery);
 
    
-}, 10000);
+}, 5000);
 
 
  
